@@ -8,6 +8,7 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
       t.string :estimated_time
       t.integer :author_id
       t.string :image_url
+      t.integer :category_id
 
       t.timestamps
     end
