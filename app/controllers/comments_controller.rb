@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
+  before_action :authorize
 
   def index
     comments = Comment.all
@@ -10,15 +12,31 @@ class CommentsController < ApplicationController
     render json: comment
   end
 
-  def create #Validation Error, says user must exist, maybe sessions and users should be done first
+  def create
     comment = Comment.create!(description: params[:description], recipe_id: params[:recipe_id], user_id: session[:user_id])
     render json: comment, include: :user, status: :created
   end
 
   def destroy
     comment = Comment.find(params[:id])
-    review.destroy
+    comment.destroy
     head :no_content
+  end
+
+  def update
+    comment = Comment.find(params[:id])
+    comment.update!(description: params[:description])
+    render json: comment
+  end
+
+  private
+
+  def record_invalid(invalid)
+    render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+  end
+
+  def authorize
+    return render json: { error: "Not Authorized" }, status: :unauthorized unless session.include? :user_id
   end
 
 end
