@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   resources :recipes
   resources :comments
+  resources :categories, only: [:index, :show]
 
 end
