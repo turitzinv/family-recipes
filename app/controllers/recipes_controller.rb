@@ -11,13 +11,13 @@ class RecipesController < ApplicationController
   end
 
   def create
-    recipe = Recipe.create!(title: params[:title], summary: params[:summary], ingredients: params[:ingredients], instructions: params[:instructions], estimated_time: params[:estimated_time], author_id: session[:user_id], image_url: params[:image_url], category_id: params[:category_id])
+    recipe = Recipe.create!(title: params[:title], ingredients: params[:ingredients], instructions: params[:instructions], author_id: session[:user_id], image_url: params[:image_url], category_id: params[:category_id])
     render json: recipe, status: :created
   end
 
   def update
     recipe = Recipe.find(params[:id])
-    recipe.update!(title: params[:title], summary: params[:summary], ingredients: params[:ingredients], instructions: params[:instructions], estimated_time: params[:estimated_time], author_id: session[:user_id], image_url: params[:image_url], category: params[:category_id])
+    recipe.update!(title: params[:title], ingredients: params[:ingredients], instructions: params[:instructions], author_id: session[:user_id], image_url: params[:image_url], category: params[:category_id])
     render json: recipe
   end
 
