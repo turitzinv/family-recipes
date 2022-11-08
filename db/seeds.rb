@@ -70,4 +70,10 @@ Comment.create(
   recipe_id: 3
 )
 
+Comment.create(
+  description: "I love it!",
+  user_id: 2,
+  recipe_id: 4
+)
+
 puts "✅ Done seeding!"
