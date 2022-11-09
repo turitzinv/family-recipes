@@ -2,6 +2,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
+import Categories from './components/Categories';
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route path="/categories">
+          <Categories />
         </Route>
       </Switch>
     </div>
