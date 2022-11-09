@@ -13,7 +13,7 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/categories">
+        <Route exact path="/categories">
           <Categories />
         </Route>
         <Route path="/categories/:id">
