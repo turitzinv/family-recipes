@@ -18,8 +18,6 @@ const Categories = () => {
     />
   ))
 
-  console.log(allCategories, "allCategories")
-
   return (
     <div>
       {categoryList}
