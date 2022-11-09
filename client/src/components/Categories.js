@@ -14,6 +14,7 @@ const Categories = () => {
     <CategoryCard 
     key={category.id}
     title={category.title}
+    category={category}
     />
   ))
 

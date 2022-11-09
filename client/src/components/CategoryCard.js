@@ -1,8 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-const CategoryCard = ({ title }) => {
+const CategoryCard = ({ title, category }) => {
+
+  const history = useHistory()
+
+  function onClick() {
+    history.push(`/categories/${category.id}`)
+  }
+
   return (
-    <h1>{title}</h1>
+    <div>
+      <h1>{title}</h1>
+      <button onClick = {onClick}>See Recipes</button>
+    </div>
   )
 }
 
