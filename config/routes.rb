@@ -18,4 +18,8 @@ Rails.application.routes.draw do
     resources :recipes, only: [:index]
   end
 
+  resources :recipes, only: [:index, :show] do
+    resources :comments, only: [:index]
+  end
+
 end

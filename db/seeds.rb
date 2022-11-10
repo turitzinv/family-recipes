@@ -76,4 +76,10 @@ Comment.create(
   recipe_id: 4
 )
 
+Comment.create(
+  description: "The perfect dessert for my family dinner. It was very refreshing.",
+  user_id: 1,
+  recipe_id: 4
+)
+
 puts "✅ Done seeding!"
