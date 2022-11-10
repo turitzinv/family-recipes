@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import RecipePreview from './RecipePreview';
 
@@ -15,7 +15,7 @@ const CategoryRecipes = () => {
   function recipeRender() {
     if (allRecipes instanceof Array) {
       return allRecipes.map((recipe) =>
-      <RecipePreview key = {recipe.id} title = {recipe.title} image = {recipe.image_url} />
+      <RecipePreview key = {recipe.id} id = {recipe.id} title = {recipe.title} image = {recipe.image_url} />
       )
     } else {
       return null;
