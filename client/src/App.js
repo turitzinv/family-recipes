@@ -25,6 +25,21 @@ function App() {
     })
   }, []);
 
+
+
+  let currentUserId
+
+  function ifUser() {
+    if (user instanceof Object) {
+      return  currentUserId = user.id
+    } else {
+      return null
+    }
+  }
+
+ 
+ 
+
   function errorRender() {
     if (errors instanceof Array) {
       return errors.map((error) => <Error key = {error} error = {error} />);
@@ -33,6 +48,7 @@ function App() {
     }
   }
 
+  ifUser()
 
   return (
     <div className="App">
@@ -59,7 +75,7 @@ function App() {
           <CategoryRecipes />
         </Route>
         <Route path="/recipes/:id">
-          <RecipeCard />
+          <RecipeCard currentUserId={currentUserId} />
         </Route>
         <Route path="/signup">
           <SignUp 

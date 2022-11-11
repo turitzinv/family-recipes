@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import CommentCard from './CommentCard';
 
-const RecipeCard = () => {
+const RecipeCard = ({ currentUserId }) => {
   const [recipe, setRecipe] = useState({})
   const [comments, setComments] = useState([])
   const { id } = useParams()
+
+  let history = useHistory()
 
   useEffect(() => {
     fetch(`/recipes/${id}`)
@@ -16,16 +18,18 @@ const RecipeCard = () => {
     })
   }, [id])
 
-console.log(comments)
-
   function recipeComments() {
     if (comments instanceof Array) {
       return comments.map((comment) =>
-      <CommentCard key = {comment.id} description = {comment.description} comment = {comment} />
+      <CommentCard key = {comment.id} description = {comment.description} comment = {comment} currentUserId = {currentUserId}  />
       )
     } else {
       return null
     }
+  }
+
+  function backRecipeClick(){
+    history.goBack()
   }
 
 
@@ -37,6 +41,7 @@ console.log(comments)
       <p>{recipe.ingredients}</p>
       <h3>Instructions</h3>
       <p>{recipe.instructions}</p>
+      <button onClick = {backRecipeClick}>Back to Recipes</button>
       <h3>Comments</h3>
       <table >
         <tbody>{recipeComments()}</tbody>
