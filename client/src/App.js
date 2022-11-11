@@ -8,13 +8,13 @@ import CategoryRecipes from './components/CategoryRecipes';
 import RecipeCard from './components/RecipeCard';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import Error from './components/Error';
 
 function App() {
   const [user, setUser] = useState(null)
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-
 
   useEffect(() => {
     fetch("/me")
@@ -24,6 +24,14 @@ function App() {
       }
     })
   }, []);
+
+  function errorRender() {
+    if (errors instanceof Array) {
+      return errors.map((error) => <Error key = {error} error = {error} />);
+    } else {
+      return null;
+    }
+  }
 
 
   return (
@@ -43,8 +51,8 @@ function App() {
           setUsername = {setUsername}
           password = {password}
           setPassword = {setPassword}
-          errors = {errors}
           setErrors = {setErrors}
+          errorRender = {errorRender()}
           />
         </Route>
         <Route path="/categories/:id">
@@ -54,7 +62,14 @@ function App() {
           <RecipeCard />
         </Route>
         <Route path="/signup">
-          <SignUp />
+          <SignUp 
+          setUser = {setUser}
+          username = {username}
+          setUsername = {setUsername}
+          password = {password}
+          setPassword = {setPassword}
+          setErrors = {setErrors}
+          />
         </Route>
       </Switch>
     </div>

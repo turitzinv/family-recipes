@@ -1,8 +1,7 @@
 import React from 'react'
-import Error from './Error';
 import { useHistory } from 'react-router-dom';
 
-const Login = ({ setUser, username, setUsername, password, setPassword, errors, setErrors }) => {
+const Login = ({ setUser, username, setUsername, password, setPassword, setErrors, errorRender }) => {
 
   let history = useHistory();
 
@@ -26,14 +25,6 @@ const Login = ({ setUser, username, setUsername, password, setPassword, errors, 
     })
   }
 
-  function errorRender() {
-    if (errors instanceof Array) {
-      return errors.map((error) => <Error key = {error} error = {error} />);
-    } else {
-      return null;
-    }
-  }
-
   return (
     <div>
       <h2>Please Login or Create an Account</h2>
@@ -51,7 +42,7 @@ const Login = ({ setUser, username, setUsername, password, setPassword, errors, 
         onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Log in</button>
-        {errorRender()}
+        {errorRender}
         <a href="/signup">Create an Account</a>
       </form>
     </div>

@@ -1,12 +1,18 @@
 import React from 'react'
-//Will need to import Error component
 
-const SignUp = () => {
-  
+const SignUp = ({ setUser, username, setUsername, password, setPassword, errors, setErrors }) => {
+
 
 
   return (
-    <h2>Create a Username and Password</h2>
+    <div>
+      <h2>Create a Username and Password</h2>
+      <form>
+        <input 
+        
+        />
+      </form>
+    </div>
   )
 }
 
