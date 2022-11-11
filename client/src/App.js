@@ -11,6 +11,9 @@ import SignUp from './components/SignUp';
 
 function App() {
   const [user, setUser] = useState(null)
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
 
   useEffect(() => {
@@ -34,7 +37,15 @@ function App() {
           <Categories />
         </Route>
         <Route path="/login" >
-          <Login setUser = {setUser} />
+          <Login 
+          setUser = {setUser}
+          username = {username}
+          setUsername = {setUsername}
+          password = {password}
+          setPassword = {setPassword}
+          errors = {errors}
+          setErrors = {setErrors}
+          />
         </Route>
         <Route path="/categories/:id">
           <CategoryRecipes />

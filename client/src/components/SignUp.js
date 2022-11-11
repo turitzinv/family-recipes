@@ -1,8 +1,12 @@
 import React from 'react'
+//Will need to import Error component
 
 const SignUp = () => {
+  
+
+
   return (
-    <h1>SignUp Component</h1>
+    <h2>Create a Username and Password</h2>
   )
 }
 

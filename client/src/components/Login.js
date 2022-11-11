@@ -1,11 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Error from './Error';
 import { useHistory } from 'react-router-dom';
 
-const Login = ({ setUser }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
+const Login = ({ setUser, username, setUsername, password, setPassword, errors, setErrors }) => {
 
   let history = useHistory();
 
@@ -21,6 +18,8 @@ const Login = ({ setUser }) => {
       if (resp.ok) {
         resp.json().then((user) => setUser(user))
         history.push("/")
+        setUsername("")
+        setPassword("")
       } else {
         resp.json().then((err) => setErrors(err.errors))
       }
