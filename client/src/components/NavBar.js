@@ -1,7 +1,20 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({ setUser }) => {
+
+  function handleSignoutClick() {
+    fetch("logout", {
+      method: "DELETE"
+    })
+    .then((resp) => {
+      if (resp.ok) {
+        setUser(null)
+      }
+    })
+  }
+
+
   return (
     <div>
       <NavLink to="/">
@@ -13,6 +26,7 @@ const NavBar = () => {
       <NavLink to="/login">
         Account
       </NavLink>
+      <button onClick = {handleSignoutClick} >Sign out</button>
     </div>
   )
 }

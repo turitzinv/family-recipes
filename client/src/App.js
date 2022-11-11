@@ -11,6 +11,8 @@ import Login from './components/Login';
 function App() {
   const [user, setUser] = useState(null)
 
+  console.log(user)
+
   useEffect(() => {
     fetch("/me")
     .then((resp) => {
@@ -23,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar setUser = {setUser} />
       <Switch>
         <Route exact path="/">
           <Home />
