@@ -5,7 +5,7 @@ const CommentCard = ({ description, comment, currentUserId }) => {
   return (
     <tr>
       <td>{description}</td>
-      { comment.id === currentUserId ? (
+      { comment.user_id === currentUserId ? (
         <>
         <td><button> Edit </button></td>
         <td><button> Delete </button></td>
