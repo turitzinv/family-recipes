@@ -69,6 +69,7 @@ function App() {
           password = {password}
           setPassword = {setPassword}
           setErrors = {setErrors}
+          errorRender = {errorRender()}
           />
         </Route>
       </Switch>
