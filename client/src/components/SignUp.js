@@ -17,6 +17,8 @@ const SignUp = ({ setUser, username, setUsername, password, setPassword, setErro
       if (resp.ok) {
         resp.json().then(setUser);
         history.push("/")
+        setUsername("")
+        setPassword("")
       } else {
         resp.json().then((err) => setErrors(err.errors))
       }

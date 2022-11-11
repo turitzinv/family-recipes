@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
-const NavBar = ({ setUser }) => {
+const NavBar = ({ setUser, user }) => {
 
   function handleSignoutClick() {
     fetch("logout", {
@@ -26,7 +26,12 @@ const NavBar = ({ setUser }) => {
       <NavLink to="/login">
         Account
       </NavLink>
+      { user ? (
       <button onClick = {handleSignoutClick} >Sign out</button>
+      ) : (
+        null
+      )
+    }
     </div>
   )
 }

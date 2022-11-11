@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar setUser = {setUser} />
+      <NavBar setUser = {setUser} user = {user} />
       <Switch>
         <Route exact path="/">
           <Home />
