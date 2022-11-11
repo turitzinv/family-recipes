@@ -7,11 +7,11 @@ import Categories from './components/Categories';
 import CategoryRecipes from './components/CategoryRecipes';
 import RecipeCard from './components/RecipeCard';
 import Login from './components/Login';
+import SignUp from './components/SignUp';
 
 function App() {
   const [user, setUser] = useState(null)
 
-  console.log(user)
 
   useEffect(() => {
     fetch("/me")
@@ -41,6 +41,9 @@ function App() {
         </Route>
         <Route path="/recipes/:id">
           <RecipeCard />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
         </Route>
       </Switch>
     </div>

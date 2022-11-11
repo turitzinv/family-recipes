@@ -53,6 +53,7 @@ const Login = ({ setUser }) => {
         />
         <button type="submit">Log in</button>
         {errorRender()}
+        <a href="/signup">Create an Account</a>
       </form>
     </div>
   )
