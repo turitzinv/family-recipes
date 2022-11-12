@@ -9,6 +9,7 @@ import RecipeCard from './components/RecipeCard';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Error from './components/Error';
+import EditComment from './components/EditComment';
 
 function App() {
   const [user, setUser] = useState(null)
@@ -90,6 +91,9 @@ function App() {
           setErrors = {setErrors}
           errorRender = {errorRender()}
           />
+        </Route>
+        <Route path="/comments/:id">
+          <EditComment />
         </Route>
       </Switch>
     </div>

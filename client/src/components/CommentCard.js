@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 const CommentCard = ({ description, comment, currentUserId, handleDeleteComment }) => {
+
+  let history = useHistory()
 
   function handleDeleteClick() {
     fetch(`/comments/${comment.id}`, {
@@ -13,12 +16,16 @@ const CommentCard = ({ description, comment, currentUserId, handleDeleteComment 
     })
   }
 
+  function handleEditClick() {
+    history.push(`/comments/${comment.id}`)
+  }
+
   return (
     <tr>
       <td>{description}</td>
       { comment.user_id === currentUserId ? (
         <>
-        <td><button> Edit </button></td>
+        <td><button onClick={handleEditClick}> Edit </button></td>
         <td><button onClick={handleDeleteClick}> Delete </button></td>
         </>
       ): (
