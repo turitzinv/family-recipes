@@ -7,6 +7,7 @@ const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
   const [recipe, setRecipe] = useState({})
   const [comments, setComments] = useState([])
   const [commentInput, setCommentInput] = useState([])
+  const [users, setUsers] = useState([])
   const { id } = useParams()
 
   let history = useHistory()
@@ -20,6 +21,12 @@ const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
     })
   }, [id])
 
+  useEffect(() => {
+    fetch("/users")
+    .then((resp) => resp.json())
+    .then((pulledUsers) => setUsers(pulledUsers))
+  },[])
+
   function handleDeleteComment(deletedComment) {
     const updatedComments = comments.filter((comment) => comment.id !== deletedComment.id)
     setComments(updatedComments)
@@ -29,11 +36,12 @@ const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
     if (comments instanceof Array) {
       return comments.map((comment) =>
       <CommentCard 
-      key = {comment.id} 
-      description = {comment.description} 
-      comment = {comment} 
+      key = {comment.id}
+      description = {comment.description}
+      comment = {comment}
       currentUserId = {currentUserId}
-      handleDeleteComment = {handleDeleteComment}  
+      handleDeleteComment = {handleDeleteComment}
+      users = {users} 
       />
       )
     } else {
