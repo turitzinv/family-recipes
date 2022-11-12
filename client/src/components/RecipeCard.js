@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import CommentCard from './CommentCard';
 import AddComment from './AddComment';
 
-const RecipeCard = ({ currentUserId, errorRender }) => {
+const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
   const [recipe, setRecipe] = useState({})
   const [comments, setComments] = useState([])
   const [commentInput, setCommentInput] = useState([])
@@ -20,14 +20,29 @@ const RecipeCard = ({ currentUserId, errorRender }) => {
     })
   }, [id])
 
+  function handleDeleteComment(deletedComment) {
+    const updatedComments = comments.filter((comment) => comment.id !== deletedComment.id)
+    setComments(updatedComments)
+  }
+
   function recipeComments() {
     if (comments instanceof Array) {
       return comments.map((comment) =>
-      <CommentCard key = {comment.id} description = {comment.description} comment = {comment} currentUserId = {currentUserId}  />
+      <CommentCard 
+      key = {comment.id} 
+      description = {comment.description} 
+      comment = {comment} 
+      currentUserId = {currentUserId}
+      handleDeleteComment = {handleDeleteComment}  
+      />
       )
     } else {
       return null
     }
+  }
+
+  function handleAddingComment(newComment) {
+    setComments([...comments, newComment])
   }
 
   function addCommentClick() {
@@ -35,6 +50,10 @@ const RecipeCard = ({ currentUserId, errorRender }) => {
       <AddComment
       errorRender = {errorRender} 
       setCommentInput = {setCommentInput}
+      currentUserId = {currentUserId}
+      recipe_id = {recipe.id}
+      setErrors = {setErrors}
+      handleAddingComment = {handleAddingComment}
       />
     )
   }
