@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import CommentCard from './CommentCard';
+import AddComment from './AddComment';
 
-const RecipeCard = ({ currentUserId }) => {
+const RecipeCard = ({ currentUserId, errorRender }) => {
   const [recipe, setRecipe] = useState({})
   const [comments, setComments] = useState([])
+  const [commentInput, setCommentInput] = useState([])
   const { id } = useParams()
 
   let history = useHistory()
@@ -28,6 +30,15 @@ const RecipeCard = ({ currentUserId }) => {
     }
   }
 
+  function addCommentClick() {
+    setCommentInput(
+      <AddComment
+      errorRender = {errorRender} 
+      setCommentInput = {setCommentInput}
+      />
+    )
+  }
+
   function backRecipeClick(){
     history.goBack()
   }
@@ -47,7 +58,8 @@ const RecipeCard = ({ currentUserId }) => {
         null
       ): (
         <>
-        <button>Add Comment</button>
+        <button onClick = {addCommentClick}>Add Comment</button>
+        {commentInput}
         </>
       )}
       <table >

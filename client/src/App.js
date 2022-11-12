@@ -75,7 +75,7 @@ function App() {
           <CategoryRecipes />
         </Route>
         <Route path="/recipes/:id">
-          <RecipeCard currentUserId={currentUserId} />
+          <RecipeCard currentUserId={currentUserId} errorRender = {errorRender()} />
         </Route>
         <Route path="/signup">
           <SignUp 
