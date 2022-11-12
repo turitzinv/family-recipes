@@ -1,7 +1,9 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 const NavBar = ({ setUser, user }) => {
+
+  let history = useHistory()
 
   function handleSignoutClick() {
     fetch("/logout", {
@@ -10,6 +12,7 @@ const NavBar = ({ setUser, user }) => {
     .then((resp) => {
       if (resp.ok) {
         setUser(null)
+        history.push("/login")
       }
     })
   }
@@ -23,13 +26,12 @@ const NavBar = ({ setUser, user }) => {
       <NavLink to="/categories">
         Categories
       </NavLink>
-      <NavLink to="/login">
-        Account
-      </NavLink>
       { user ? (
       <button onClick = {handleSignoutClick} >Sign out</button>
       ) : (
-        null
+        <NavLink to="/login">
+        Login
+      </NavLink>
       )
     }
     </div>
