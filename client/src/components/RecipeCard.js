@@ -43,6 +43,13 @@ const RecipeCard = ({ currentUserId }) => {
       <p>{recipe.instructions}</p>
       <button onClick = {backRecipeClick}>Back to Recipes</button>
       <h3>Comments</h3>
+      { currentUserId === undefined ? (
+        null
+      ): (
+        <>
+        <button>Add Comment</button>
+        </>
+      )}
       <table >
         <tbody>{recipeComments()}</tbody>
       </table>
