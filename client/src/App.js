@@ -73,7 +73,10 @@ function App() {
           <CategoryRecipes />
         </Route>
         <Route path="/recipe_create">
-          <AddRecipe />
+          <AddRecipe
+          errorRender = {errorRender()}
+          setErrors = {setErrors}
+          />
         </Route>
         <Route path="/recipes/:id">
           <RecipeCard currentUserId={currentUserId} 

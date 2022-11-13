@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
+before_action :authorize
 
   def index
     recipes = Recipe.all
@@ -25,6 +27,16 @@ class RecipesController < ApplicationController
     recipe = Recipe.find(params[:id])
     recipe.destroy
     head :no_content
+  end
+
+  private
+
+  def record_invalid(invalid)
+    render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+  end
+  
+  def authorize
+    return render json: { error: "Not Authorized" }, status: :unauthorized unless session.include? :user_id
   end
 
 end
