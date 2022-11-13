@@ -27,7 +27,12 @@ const NavBar = ({ setUser, user }) => {
         Categories
       </NavLink>
       { user ? (
+        <>
+        <NavLink to="/recipe_create">
+        Add Recipe
+        </NavLink>
       <button onClick = {handleSignoutClick} >Sign out</button>
+      </>
       ) : (
         <NavLink to="/login">
         Login

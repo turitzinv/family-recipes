@@ -10,6 +10,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Error from './components/Error';
 import EditComment from './components/EditComment';
+import AddRecipe from './components/AddRecipe';
 
 function App() {
   const [user, setUser] = useState(null)
@@ -27,8 +28,6 @@ function App() {
     })
   }, []);
 
-
-
   let currentUserId
 
   function ifUser() {
@@ -38,9 +37,6 @@ function App() {
       return null
     }
   }
-
- 
- 
 
   function errorRender() {
     if (errors instanceof Array) {
@@ -75,6 +71,9 @@ function App() {
         </Route>
         <Route path="/categories/:id">
           <CategoryRecipes />
+        </Route>
+        <Route path="/recipe_create">
+          <AddRecipe />
         </Route>
         <Route path="/recipes/:id">
           <RecipeCard currentUserId={currentUserId} 
