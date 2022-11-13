@@ -15,6 +15,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
@@ -90,6 +91,8 @@ function App() {
           setPassword = {setPassword}
           setErrors = {setErrors}
           errorRender = {errorRender()}
+          passwordConfirmation = {passwordConfirmation}
+          setPasswordConfirmation = {setPasswordConfirmation}
           />
         </Route>
         <Route path="/comments/:id">

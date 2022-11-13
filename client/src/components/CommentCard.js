@@ -6,7 +6,7 @@ const CommentCard = ({ description, comment, currentUserId, handleDeleteComment,
   let history = useHistory()
 
   let userCommented = [];
-  
+
     users.forEach((user) => {
     if(user.id === comment.user_id) {
       userCommented.push(user.username)
@@ -14,7 +14,7 @@ const CommentCard = ({ description, comment, currentUserId, handleDeleteComment,
     })
 
   const displayUsers = userCommented.map((user) => {
-    return <td>{user}</td>
+    return <td key={user.indexOf()}>{user}</td>
   })
 
   function handleDeleteClick() {

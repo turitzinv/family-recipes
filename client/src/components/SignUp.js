@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-const SignUp = ({ setUser, username, setUsername, password, setPassword, setErrors, errorRender }) => {
+const SignUp = ({ setUser, username, setUsername, password, setPassword, setErrors, errorRender, passwordConfirmation, setPasswordConfirmation }) => {
 
   let history = useHistory()
 
@@ -12,7 +12,9 @@ const SignUp = ({ setUser, username, setUsername, password, setPassword, setErro
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username,
+        password,
+        password_confirmation: passwordConfirmation }),
     }).then((resp) => {
       if (resp.ok) {
         resp.json().then(setUser);
@@ -41,6 +43,13 @@ const SignUp = ({ setUser, username, setUsername, password, setPassword, setErro
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         />
+        <input 
+        type="password"
+        placeholder="Password Confirmation"
+        value={passwordConfirmation}
+        onChange={(e) => setPasswordConfirmation(e.target.value)}
+        />
+        
         <button onClick = {handleSignUp}>Create Account</button>
         {errorRender}
       </form>
