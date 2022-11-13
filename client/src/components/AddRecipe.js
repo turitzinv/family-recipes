@@ -5,6 +5,7 @@ const AddRecipe = ({ errorRender, setErrors }) => {
     title: "",
     ingredients: "",
     instructions: "",
+    image_url: "",
     category_id: "Choose Category"
   })
 
@@ -15,10 +16,18 @@ const AddRecipe = ({ errorRender, setErrors }) => {
     })
   }
 
-  function handleSelectChange(e) {
-    setFormData ({
+  function handleSelectChange(event) {
+    setFormData({
       ...formData,
-      [e.target.name]: parseInt(e.target.value)
+      [event.target.name]: parseInt(event.target.value)
+    })
+  }
+
+  function fileSelectedHandler(event) {
+    setFormData({
+      ...formData,
+      [event.target.name]: URL.createObjectURL(event.target.files[0])
+
     })
   }
 
@@ -33,6 +42,7 @@ const AddRecipe = ({ errorRender, setErrors }) => {
         title: formData.title,
         ingredients: formData.ingredients,
         instructions: formData.instructions,
+        image_url: formData.image_url,
         category_id: formData.category_id
       }),
     }).then((resp => {
@@ -41,6 +51,7 @@ const AddRecipe = ({ errorRender, setErrors }) => {
           title: "",
           ingredients: "",
           instructions: "",
+          image_url: "",
           category_id: "Choose Category"
         })
       } else {
@@ -70,6 +81,12 @@ const AddRecipe = ({ errorRender, setErrors }) => {
         name="instructions"
         placeholder="Instructions"
         onChange={handleInputChange}
+        />
+        <input 
+        type="file"
+        name="image_url"
+        placeholder="Image Link"
+        onChange={fileSelectedHandler}
         />
         <select onChange={handleSelectChange} name="category_id" defaultValue="default">
           <option value="default" disabled>Choose Category</option>
