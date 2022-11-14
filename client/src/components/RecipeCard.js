@@ -70,7 +70,6 @@ const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
     history.goBack()
   }
 
-
   return (
     <div>
       <h1>{recipe.title}</h1>
