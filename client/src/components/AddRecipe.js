@@ -5,7 +5,7 @@ const AddRecipe = ({ errorRender, setErrors }) => {
     title: "",
     ingredients: "",
     instructions: "",
-    image_url: "",
+    image_url: null,
     category_id: "Choose Category"
   })
 

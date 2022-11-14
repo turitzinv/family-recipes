@@ -74,7 +74,11 @@ const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
   return (
     <div>
       <h1>{recipe.title}</h1>
-      <img id="recipe-preview-image" src={recipe.image_url} alt={recipe.title}/>
+      {recipe.image_url === null ? (
+        null
+      ): (
+        <img id="recipe-preview-image" src={recipe.image_url} alt={recipe.title}/>
+      )}
       <h3>Ingredients</h3>
       <p>{recipe.ingredients}</p>
       <h3>Instructions</h3>

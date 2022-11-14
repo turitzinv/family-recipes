@@ -12,7 +12,11 @@ const RecipePreview = ({ title, image, id }) => {
   return (
     <div>
       <h2>{title}</h2>
-      <img id="recipe-preview-image" src={image} alt={title}/>
+      {image === null ? (
+        null
+      ): (
+        <img id="recipe-preview-image" src={image} alt={title}/>
+      )}
       <button onClick={onClick}>View Recipe</button>
     </div>
   )
