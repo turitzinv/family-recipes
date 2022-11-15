@@ -53,6 +53,10 @@ const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
     setComments([...comments, newComment])
   }
 
+  function handleEditRecipeClick() {
+    history.push(`/editrecipe/${recipe.id}`)
+  }
+
   function addCommentClick() {
     setCommentInput(
       <AddComment
@@ -73,6 +77,12 @@ const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
   return (
     <div>
       <h1>{recipe.title}</h1>
+      { recipe.author_id === currentUserId ? (
+        <button onClick={handleEditRecipeClick}>Edit your Recipe</button>
+        //need to add a delete button here if this is the users recipe
+      ) : (
+        null
+      )}
       {recipe.image_url === null ? (
         null
       ): (

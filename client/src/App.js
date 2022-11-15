@@ -11,6 +11,7 @@ import SignUp from './components/SignUp';
 import Error from './components/Error';
 import EditComment from './components/EditComment';
 import AddRecipe from './components/AddRecipe';
+import EditRecipe from './components/EditRecipe';
 
 function App() {
   const [user, setUser] = useState(null)
@@ -99,6 +100,9 @@ function App() {
         </Route>
         <Route path="/comments/:id">
           <EditComment />
+        </Route>
+        <Route path="/editrecipe/:id">
+          <EditRecipe />
         </Route>
       </Switch>
     </div>
