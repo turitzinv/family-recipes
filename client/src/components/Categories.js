@@ -19,7 +19,7 @@ const Categories = () => {
   ))
 
   return (
-    <div>
+    <div id="all_categories">
       {categoryList}
     </div>
   )

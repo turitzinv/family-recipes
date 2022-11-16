@@ -6,10 +6,10 @@ import { useHistory } from 'react-router-dom';
 const Login = ({ setUser, username, setUsername, password, setPassword, setErrors, errorRender }) => {
 
   let history = useHistory();
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
 
   function handleLogin(event) {
-  //   event.preventDefault();
+    event.preventDefault();
   //   dispatch(fetchUser())
   // }
     fetch("/login", {

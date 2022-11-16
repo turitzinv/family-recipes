@@ -16,3 +16,19 @@ code {
   width: 500px;
   height: 500px;
 }
+
+#all_categories {
+  border: 2px solid #333;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  max-width: 500px;
+  margin: 0 auto 1rem;
+}
+
+#categories {
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+  line-height: 0.25rem;
+  border-top: 1px solid #333;
+}

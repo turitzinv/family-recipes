@@ -3,6 +3,18 @@ import { NavLink, useHistory } from 'react-router-dom';
 
 const NavBar = ({ setUser, user }) => {
 
+  const linkStyles = {
+    display: "inline-block",
+    width: "162px",
+    padding: "15px",
+    margin: "10px 9px 20px",
+    background: "indigo",
+    textDecoration: "none",
+    color: "white",
+    fontWeight: "bold",
+    fontSize: "20px"
+  }
+
   let history = useHistory()
 
   function handleSignoutClick() {
@@ -20,21 +32,21 @@ const NavBar = ({ setUser, user }) => {
 
   return (
     <div>
-      <NavLink to="/">
+      <NavLink style={linkStyles} to="/">
         Home
       </NavLink>
-      <NavLink to="/categories">
+      <NavLink style={linkStyles} to="/categories">
         Categories
       </NavLink>
       { user ? (
         <>
-        <NavLink to="/recipe_create">
+        <NavLink style={linkStyles} to="/recipe_create">
         Add Recipe
         </NavLink>
       <button onClick = {handleSignoutClick} >Sign out</button>
       </>
       ) : (
-        <NavLink to="/login">
+        <NavLink style={linkStyles} to="/login">
         Login
       </NavLink>
       )

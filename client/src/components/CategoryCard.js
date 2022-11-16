@@ -10,9 +10,9 @@ const CategoryCard = ({ title, category }) => {
   }
 
   return (
-    <div>
-      <h1>{title}</h1>
-      <button onClick = {onClick}>View Recipes</button>
+    <div  id="categories">
+        <p>{title}</p>
+        <button onClick = {onClick}>View Recipes</button>
     </div>
   )
 }
