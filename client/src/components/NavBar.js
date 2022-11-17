@@ -8,7 +8,7 @@ const NavBar = ({ setUser, user }) => {
     width: "140px",
     padding: "5px 5px",
     margin: "0px 5px 5px",
-    background: "indigo",
+    background: "rgb(25, 184, 205)",
     textDecoration: "none",
     color: "white",
     fontWeight: "bold",

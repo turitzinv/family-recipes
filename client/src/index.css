@@ -14,12 +14,15 @@ code {
 
 #family_recipes_header {
   text-align: center;
-  background-color:blueviolet;
+  background-color:rgb(25, 184, 205);
   padding-top: 10px;
   padding-bottom: 10px;
   margin: 0 auto 1rem;
   position: sticky;
   letter-spacing: 0.1em;
+  font-weight: bolder;
+  color: white;
+  text-decoration-line: underline;
 }
 
 #recipe-preview-image {
