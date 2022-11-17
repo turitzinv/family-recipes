@@ -10,7 +10,7 @@ const RecipePreview = ({ title, image, id }) => {
   }
 
   return (
-    <div>
+    <div id="recipe_preview">
       <h2>{title}</h2>
       {image === null ? (
         null

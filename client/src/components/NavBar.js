@@ -5,9 +5,9 @@ const NavBar = ({ setUser, user }) => {
 
   const linkStyles = {
     display: "inline-block",
-    width: "162px",
-    padding: "15px",
-    margin: "10px 9px 20px",
+    width: "140px",
+    padding: "5px 5px",
+    margin: "0px 5px 5px",
     background: "indigo",
     textDecoration: "none",
     color: "white",

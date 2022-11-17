@@ -51,6 +51,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1 id="family_recipes_header">Family Recipes</h1>
       <NavBar setUser = {setUser} user = {user} />
       <Switch>
         <Route exact path="/">
