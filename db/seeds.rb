@@ -9,29 +9,29 @@ Category.create(title: "Lunch")
 Category.create(title: "Dinner")
 Category.create(title: "Dessert")
 
-Recipe.create(
-  title: "Satey Beef",
-  ingredients: "2 lbs. New York Cut Steak, Few slices of Ginger, 1 clove of Garlic, Several Green Onions, Chinese Sategy Sauce.",
-  instructions: "Cut garlc, green onions, and ginger into small strips. Fry above ingredients in corn oil until the garlic is slightly brown. Add the Satey sauce, while the frying ingredients are still cooking. Cook until the beef turns brown.",
-  author_id: 1,
-  category_id: 3
-)
+# Recipe.create(
+#   title: "Satey Beef",
+#   ingredients: "2 lbs. New York Cut Steak, Few slices of Ginger, 1 clove of Garlic, Several Green Onions, Chinese Sategy Sauce.",
+#   instructions: "Cut garlc, green onions, and ginger into small strips. Fry above ingredients in corn oil until the garlic is slightly brown. Add the Satey sauce, while the frying ingredients are still cooking. Cook until the beef turns brown.",
+#   author_id: 1,
+#   category_id: 3
+# )
 
-Recipe.create(
-  title: "Ambrosia",
-  ingredients: "1 box Jell-o (orange). 1 tub Cool Whip. 1 can Dole Mandarin Oranges",
-  instructions: "Prepare Jello-O as instructed on box. Mix Cool Whip into Jell-O. Drain Mandarin Oranges. Mix them into Jell-O and Cool Whip. Chill for at least 1 hour.",
-  author_id: 2,
-  category_id: 4
-)
+# Recipe.create(
+#   title: "Ambrosia",
+#   ingredients: "1 box Jell-o (orange). 1 tub Cool Whip. 1 can Dole Mandarin Oranges",
+#   instructions: "Prepare Jello-O as instructed on box. Mix Cool Whip into Jell-O. Drain Mandarin Oranges. Mix them into Jell-O and Cool Whip. Chill for at least 1 hour.",
+#   author_id: 2,
+#   category_id: 4
+# )
 
-Recipe.create(
-  title: "Peanut Butter Pie",
-  ingredients: "1 cup chunky peanut butter - heat for 45 seconds. 1/2 Cup of Milk. 8 oz Cream Cheese. 1 cup of Powdered Sugar. 16 ozs Cool Whip.",
-  instructions: "Mix first four ingredients well. Carefully add Cool Whip. Pour into two pie crusts (I prefer chocolate graham, ready made). Freeze. Thaw slightly to serve",
-  author_id: 3,
-  category_id: 4
-)
+# Recipe.create(
+#   title: "Peanut Butter Pie",
+#   ingredients: "1 cup chunky peanut butter - heat for 45 seconds. 1/2 Cup of Milk. 8 oz Cream Cheese. 1 cup of Powdered Sugar. 16 ozs Cool Whip.",
+#   instructions: "Mix first four ingredients well. Carefully add Cool Whip. Pour into two pie crusts (I prefer chocolate graham, ready made). Freeze. Thaw slightly to serve",
+#   author_id: 3,
+#   category_id: 4
+# )
 
 Recipe.create(
   title: "Lemon Cake",

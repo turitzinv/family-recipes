@@ -12,7 +12,7 @@ const CategoryCard = ({ title, category }) => {
   return (
     <div  id="categories">
         <p>{title}</p>
-        <button onClick = {onClick}>View Recipes</button>
+        <button type="button" class="btn btn-info" onClick = {onClick}>View Recipes</button>
     </div>
   )
 }

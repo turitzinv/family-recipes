@@ -10,14 +10,16 @@ const RecipePreview = ({ title, image, id }) => {
   }
 
   return (
-    <div id="recipe_preview">
-      <h2>{title}</h2>
-      {image === null ? (
+    <div class="card">
+       {image === null ? (
         null
       ): (
-        <img id="recipe-preview-image" src={image} alt={title}/>
+        <img class="card-img-top" src={image} alt={title}/>
       )}
-      <button onClick={onClick}>View Recipe</button>
+           <div class="card-body">
+      <h2 class="card-title">{title}</h2>
+      <button class="btn btn-primary" onClick={onClick}>View Recipe</button>
+      </div>
     </div>
   )
 }
