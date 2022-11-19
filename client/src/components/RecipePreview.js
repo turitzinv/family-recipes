@@ -1,27 +1,29 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React from "react";
+import { useHistory } from "react-router-dom";
 
-const RecipePreview = ({ title, image, id }) => {
-
+const RecipePreview = ({ title, image, id, user }) => {
   let history = useHistory();
 
   function onClick() {
-    history.push(`/recipes/${id}`)
+    history.push(`/recipes/${id}`);
   }
 
   return (
     <div class="card">
-       {image === null ? (
-        null
-      ): (
-        <img class="card-img-top" src={image} alt={title}/>
-      )}
-           <div class="card-body">
-      <h2 class="card-title">{title}</h2>
-      <button class="btn btn-primary" onClick={onClick}>View Recipe</button>
+      <img class="card-img-top" src={image} alt={title} />
+      <div class="card-body">
+        <h2 class="card-title">{title}</h2>
+        {user ? (
+          <button class="btn btn-primary" onClick={onClick}>
+          View Details
+        </button>
+        ): (
+          null
+        )}
+        
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RecipePreview
+export default RecipePreview;

@@ -72,7 +72,7 @@ function App() {
           />
         </Route>
         <Route path="/categories/:id">
-          <CategoryRecipes />
+          <CategoryRecipes user = {user} />
         </Route>
         <Route path="/recipe_create">
           <AddRecipe
