@@ -47,8 +47,8 @@ const EditComment = () => {
   return (
     <div>
       <textarea name="description" defaultValue={comment.description} onChange={handleCommentChange} />
-      <button onClick={handleUpdatingComment}> Confirm Edit </button>
-      <button onClick={cancelEditClick}> Cancel Edit </button>
+      <button class="btn btn-primary" onClick={handleUpdatingComment}> Confirm Edit </button>
+      <button class="btn btn-primary" onClick={cancelEditClick}> Cancel Edit </button>
     </div>
   )
 }

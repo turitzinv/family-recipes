@@ -104,8 +104,8 @@ const EditRecipe = () => {
           <option value="3">Dinner</option>
           <option value="4">Dessert</option>
         </select>
-        <button>Confirm Edit</button>
-        <button onClick={cancelEditClick}>Cancel Edit</button>
+        <button class="btn btn-primary">Confirm Edit</button>
+        <button class="btn btn-primary" onClick={cancelEditClick}>Cancel Edit</button>
       </form>
     </div>
   )

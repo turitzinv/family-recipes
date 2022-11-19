@@ -78,7 +78,7 @@ const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
     <div>
       <h1>{recipe.title}</h1>
       { recipe.author_id === currentUserId ? (
-        <button onClick={handleEditRecipeClick}>Edit your Recipe</button>
+        <button class="btn btn-primary" onClick={handleEditRecipeClick}>Edit your Recipe</button>
         //need to add a delete button here if this is the users recipe
       ) : (
         null
@@ -86,23 +86,27 @@ const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
       {recipe.image_url === null ? (
         null
       ): (
-        <img id="recipe-preview-image" src={recipe.image_url} alt={recipe.title}/>
+        <img id="recipe-image" src={recipe.image_url} alt={recipe.title}/>
       )}
       <h3>Ingredients</h3>
       <p>{recipe.ingredients}</p>
       <h3>Instructions</h3>
       <p>{recipe.instructions}</p>
-      <button onClick = {backRecipeClick}>Back to Recipes</button>
+      <button class="btn btn-primary" onClick = {backRecipeClick}>Back to Recipes</button>
       <h3>Comments</h3>
       { currentUserId === undefined ? (
         null
       ): (
         <>
-        <button onClick = {addCommentClick}>Add Comment</button>
+        <button class="btn btn-primary" onClick = {addCommentClick}>Add Comment</button>
         {commentInput}
         </>
       )}
-      <table >
+      <table class="table table-striped" >
+        <tr>
+          <th>Recipe Comments</th>
+          <th>Username</th>
+        </tr>
         <tbody>{recipeComments()}</tbody>
       </table>
     </div>

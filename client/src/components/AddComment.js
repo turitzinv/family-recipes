@@ -41,8 +41,8 @@ const AddComment = ({ errorRender, setCommentInput, currentUserId, recipe_id, se
     <div>
       {errorRender}
       <textarea name="description" onChange={handleChange} value={comment.description} placeholder="Add your comment"/>
-      <button onClick={addCommentClick}>Add</button>
-      <button onClick={closeComment}>Close</button>
+      <button class="btn btn-primary" onClick={addCommentClick}>Add</button>
+      <button class="btn btn-primary" onClick={closeComment}>Close</button>
     </div>
   )
 }

@@ -43,7 +43,7 @@ const NavBar = ({ setUser, user }) => {
         <NavLink style={linkStyles} to="/recipe_create">
         Add Recipe
         </NavLink>
-      <button onClick = {handleSignoutClick} >Sign out</button>
+      <button style={linkStyles} onClick = {handleSignoutClick} >Sign out</button>
       </>
       ) : (
         <NavLink style={linkStyles} to="/login">

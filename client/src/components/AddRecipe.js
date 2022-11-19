@@ -95,7 +95,7 @@ const AddRecipe = ({ errorRender, setErrors }) => {
           <option value="3">Dinner</option>
           <option value="4">Dessert</option>
         </select>
-        <button> Add Recipe</button>
+        <button class="btn btn-primary"> Add Recipe</button>
         {errorRender}
       </form>
     </div>

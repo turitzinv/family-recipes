@@ -66,10 +66,11 @@ code {
   border-left: black solid 0.1rem;
   border-right: black solid 0.1rem;
 }
+*/
 
-#recipe-preview-image {
-  width: 350px;
-  height: 350px;
+#recipe-image {
+  width: 450px;
+  height: 500px;
   text-align: center;
   padding: 25px;
-} */
+} 
