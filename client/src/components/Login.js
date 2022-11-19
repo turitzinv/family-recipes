@@ -1,17 +1,12 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-//import { useSelector, useDispatch } from 'react-redux';
-//import { fetchUser } from './redux/UserSlice'
 
 const Login = ({ setUser, username, setUsername, password, setPassword, setErrors, errorRender }) => {
 
   let history = useHistory();
-  //const dispatch = useDispatch();
 
   function handleLogin(event) {
     event.preventDefault();
-  //   dispatch(fetchUser())
-  // }
     fetch("/login", {
       method: "POST",
       headers: {
