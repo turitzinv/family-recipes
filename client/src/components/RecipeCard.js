@@ -5,6 +5,7 @@ import AddComment from './AddComment';
 
 const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
   const [recipe, setRecipe] = useState({})
+  const [ingredients, setIngredients] = useState([])
   const [comments, setComments] = useState([])
   const [commentInput, setCommentInput] = useState([])
   const [users, setUsers] = useState([])
@@ -18,8 +19,11 @@ const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
     .then((recipe) => {
       setRecipe(recipe)
       setComments(recipe.comments)
+      setIngredients(recipe.ingredients)
     })
   }, [id])
+
+  console.log(ingredients)
 
   useEffect(() => {
     fetch("/users")

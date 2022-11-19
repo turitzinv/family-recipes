@@ -20,13 +20,14 @@ const NavBar = ({ setUser, user }) => {
     width: "140px",
     padding: "5px 5px",
     margin: "0px 5px 5px",
-    background: "rgb(25, 184, 205)",
     textDecoration: "none",
     color: "white",
     fontWeight: "bold",
-    fontSize: "20px",
+    fontSize: "18px",
     position: "absolute",
-    top: "20px"
+    top: "35px",
+    right: "30px",
+    width: "200px"
   }
 
   let history = useHistory()
