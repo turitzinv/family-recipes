@@ -15,6 +15,20 @@ const NavBar = ({ setUser, user }) => {
     fontSize: "20px"
   }
 
+  const helloUserStyle = {
+    display: "inline-block",
+    width: "140px",
+    padding: "5px 5px",
+    margin: "0px 5px 5px",
+    background: "rgb(25, 184, 205)",
+    textDecoration: "none",
+    color: "white",
+    fontWeight: "bold",
+    fontSize: "20px",
+    position: "absolute",
+    top: "20px"
+  }
+
   let history = useHistory()
 
   function handleSignoutClick() {
@@ -43,8 +57,9 @@ const NavBar = ({ setUser, user }) => {
         <NavLink style={linkStyles} to="/recipe_create">
         Add Recipe
         </NavLink>
-      <button style={linkStyles} onClick = {handleSignoutClick} >Sign out</button>
-      </>
+          <button style={linkStyles} onClick = {handleSignoutClick} >Sign out</button>
+          <p style={helloUserStyle}>Hello {user.username}</p>
+        </>
       ) : (
         <NavLink style={linkStyles} to="/login">
         Login
