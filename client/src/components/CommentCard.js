@@ -38,8 +38,8 @@ const CommentCard = ({ description, comment, currentUserId, handleDeleteComment,
       {displayUsers}
       { comment.user_id === currentUserId ? (
         <>
-        <td><button class="btn btn-primary" onClick={handleEditClick}> Edit </button></td>
-        <td><button class="btn btn-primary" onClick={handleDeleteClick}> Delete </button></td>
+        <td><button id="edit-comment-button" class="btn btn-primary" onClick={handleEditClick}> Edit </button></td>
+        <td><button id="delete-comment-button" class="btn btn-primary" onClick={handleDeleteClick}> Delete </button></td>
         </>
       ): (
         null

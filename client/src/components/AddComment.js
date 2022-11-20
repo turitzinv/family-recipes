@@ -40,9 +40,9 @@ const AddComment = ({ errorRender, setCommentInput, currentUserId, recipe_id, se
   return (
     <div>
       {errorRender}
-      <textarea name="description" onChange={handleChange} value={comment.description} placeholder="Add your comment"/>
-      <button class="btn btn-primary" onClick={addCommentClick}>Add</button>
-      <button class="btn btn-primary" onClick={closeComment}>Close</button>
+      <textarea id="comment-input" name="description" onChange={handleChange} value={comment.description} placeholder="Add your comment"/>
+      <button id="add-comment" class="btn btn-primary" onClick={addCommentClick}>Add</button>
+      <button id="close comment" class="btn btn-primary" onClick={closeComment}>Close</button>
     </div>
   )
 }
