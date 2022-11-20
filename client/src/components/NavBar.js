@@ -17,7 +17,6 @@ const NavBar = ({ setUser, user }) => {
 
   const helloUserStyle = {
     display: "inline-block",
-    width: "140px",
     padding: "5px 5px",
     margin: "0px 5px 5px",
     textDecoration: "none",

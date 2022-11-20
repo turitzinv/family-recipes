@@ -11,8 +11,6 @@ const EditRecipe = () => {
     category_id: recipe.category_id
   })
 
-  console.log(recipe)
-
   const { id } = useParams()
 
   let history = useHistory()
@@ -34,14 +32,6 @@ const EditRecipe = () => {
       [event.target.name]: parseInt(event.target.value)
     })
   }
-
-  // function fileSelectedHandler(event) {
-  //   setNewRecipe({
-  //     ...newRecipe,
-  //     [event.target.name]: URL.createObjectURL(event.target.files[0])
-
-  //   })
-  // }
 
   useEffect(() => {
     fetch(`/recipes/${id}`)
@@ -65,6 +55,8 @@ const EditRecipe = () => {
     }).then((resp) => resp.json())
     history.push(`/recipes/${id}`)
   }
+
+
 
   return (
     <div>
