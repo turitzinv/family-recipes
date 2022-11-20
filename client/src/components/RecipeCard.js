@@ -91,26 +91,25 @@ const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
   return (
     <div>
       <h1>{recipe.title}</h1>
+      <img id="recipe-image" src={recipe.image_url} alt={recipe.title} />
       {recipe.author_id === currentUserId ? (
         <>
-          <button class="btn btn-primary" onClick={handleEditRecipeClick}>
+          <button id="edit-recipe-button" class="btn btn-primary" onClick={handleEditRecipeClick}>
             Edit Recipe
           </button>
-          <button class="btn btn-primary" onClick={handleDeleteClick}>
+          <button id="delete-recipe-button" class="btn btn-primary" onClick={handleDeleteClick}>
             Delete Recipe
           </button>
         </>
       ) : null}
-
-      <img id="recipe-image" src={recipe.image_url} alt={recipe.title} />
-      <h3>Ingredients</h3>
+      <h3 id="ingredients-h3">Ingredients</h3>
       <p>{recipe.ingredients}</p>
       <h3>Instructions</h3>
       <p>{recipe.instructions}</p>
       <button class="btn btn-primary" onClick={backRecipeClick}>
         Back to Recipes
       </button>
-      <h3>Comments</h3>
+      <h3 id="comments-h3">Comments</h3>
       {currentUserId === undefined ? null : (
         <>
           <button class="btn btn-primary" onClick={addCommentClick}>

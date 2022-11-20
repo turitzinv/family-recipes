@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
 rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
-before_action :authorize
+##before_action :authorize
 
   def index
     recipes = Recipe.all
@@ -19,7 +19,7 @@ before_action :authorize
 
   def update
     recipe = Recipe.find(params[:id])
-    recipe.update!(title: params[:title], ingredients: params[:ingredients], instructions: params[:instructions], author_id: session[:user_id], image_url: params[:image_url], category: params[:category_id])
+    recipe.update!(title: params[:title], ingredients: params[:ingredients], instructions: params[:instructions], author_id: session[:user_id], image_url: params[:image_url], category_id: params[:category_id])
     render json: recipe
   end
 

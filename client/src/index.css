@@ -31,6 +31,28 @@ code {
   font-weight: bolder;
 }
 
+#edit-recipe-button {
+  position: absolute;
+  margin-top: 10px;
+  top: 650px;
+  left: 330px;
+}
+
+#delete-recipe-button {
+  position: absolute;
+  margin-top: 10px;
+  top: 650px;
+  right: 330px;
+}
+
+#ingredients-h3 {
+  margin-top: 30px;
+}
+
+#comments-h3 {
+  margin-top: 30px;
+}
+
 
 #all_categories {
   border: 2px solid #333;

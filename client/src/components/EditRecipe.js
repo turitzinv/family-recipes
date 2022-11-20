@@ -56,8 +56,6 @@ const EditRecipe = () => {
     history.push(`/recipes/${id}`)
   }
 
-
-
   return (
     <div>
       <form onSubmit={handleRecipeUpdateSubmit}>
@@ -89,7 +87,7 @@ const EditRecipe = () => {
         value={recipe.image_url}
         onChange={fileSelectedHandler}
         /> */}
-        <select onChange={handleSelectChange} name="category_id" value={recipe.category_id}>
+        <select onChange={handleSelectChange} name="category_id" defaultValue={recipe.category_id}>
           <option value="default" disabled>Choose Category</option>
           <option value="1">Breakfast</option>
           <option value="2">Lunch</option>
