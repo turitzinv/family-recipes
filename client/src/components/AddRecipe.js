@@ -6,7 +6,7 @@ const AddRecipe = ({ errorRender, setErrors }) => {
     ingredients: "",
     instructions: "",
     image_url: null,
-    category_id: "Choose Category"
+    category_id: "default"
   })
 
   function handleInputChange(event) {
@@ -47,13 +47,15 @@ const AddRecipe = ({ errorRender, setErrors }) => {
       }),
     }).then((resp => {
       if (resp.ok) {
-        setFormData({
-          title: "",
-          ingredients: "",
-          instructions: "",
-          image_url: "",
-          category_id: "Choose Category"
-        })
+        alert("Recipe Added!")
+        window.location.reload()
+        // setFormData({
+        //   title: "",
+        //   ingredients: "",
+        //   instructions: "",
+        //   image_url: null,
+        //   category_id: "default"
+        // })
       } else {
         resp.json().then((err) => setErrors(err.errors))
       }

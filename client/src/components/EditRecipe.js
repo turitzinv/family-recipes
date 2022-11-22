@@ -11,6 +11,8 @@ const EditRecipe = () => {
     category_id: recipe.category_id
   })
 
+  console.log(recipe.title)
+
   const { id } = useParams()
 
   let history = useHistory()
