@@ -8,16 +8,13 @@ import { Provider } from 'react-redux';
 import { legacy_createStore as createStore } from 'redux';
 import rootReducer from './components/redux';
 
-const store = createStore(rootReducer);
-
-//Provider added causes Error: Invalid Hook Call.
-//Could redux and react version conflicts cause it?
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <BrowserRouter>
-  {/* <Provider store={store}> */}
+  <Provider store={store}>
       <App />
-    {/* </Provider> */}
+    </Provider>
   </BrowserRouter>,
   document.getElementById('root')
 );

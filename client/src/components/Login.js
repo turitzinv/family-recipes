@@ -1,7 +1,13 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { login } from './redux/userAction';
+import { useDispatch } from 'react-redux';
+
 
 const Login = ({ setUser, username, setUsername, password, setPassword, setErrors, errorRender }) => {
+
+  const dispatch = useDispatch();
+  //dispatch(login(user, username, password))
 
   let history = useHistory();
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
 const EditRecipe = () => {
-  const [recipe, setRecipe] = useState({})
+  const [recipe, setRecipe] = useState({}) //set default value to empty strings
   const [newRecipe, setNewRecipe] = useState({
     title: recipe.title,
     ingredients: recipe.ingredients,
@@ -11,7 +11,7 @@ const EditRecipe = () => {
     category_id: recipe.category_id
   })
 
-  console.log(recipe.title)
+  console.log(recipe.category_id)
 
   const { id } = useParams()
 
@@ -36,7 +36,7 @@ const EditRecipe = () => {
   }
 
   useEffect(() => {
-    fetch(`/recipes/${id}`)
+     fetch(`/recipes/${id}`)
       .then((resp) => resp.json())
       .then((recipe) => setRecipe(recipe))
   }, [id])

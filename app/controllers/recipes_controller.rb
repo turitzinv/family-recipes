@@ -17,7 +17,9 @@ rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
     render json: recipe, status: :created
   end
 
+  #For Update, use strong params and permit
   def update
+    #byebug
     recipe = Recipe.find(params[:id])
     recipe.update!(title: params[:title], ingredients: params[:ingredients], instructions: params[:instructions], author_id: session[:user_id], image_url: params[:image_url], category_id: params[:category_id])
     render json: recipe

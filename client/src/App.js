@@ -13,6 +13,7 @@ import EditComment from './components/EditComment';
 import AddRecipe from './components/AddRecipe';
 import EditRecipe from './components/EditRecipe';
 
+
 function App() {
   const [user, setUser] = useState(null)
   const [username, setUsername] = useState("");
@@ -20,7 +21,18 @@ function App() {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
 
-  useEffect(() => {
+
+
+  // useEffect(() => {
+  //   fetch("/me")
+  //   .then((resp) => {
+  //     if (resp.ok) {
+  //       resp.json().then((user) => setUser(user));
+  //     }
+  //   })
+  // }, []);
+
+    useEffect(() => {
     fetch("/me")
     .then((resp) => {
       if (resp.ok) {
@@ -52,7 +64,7 @@ function App() {
   return (
     <div className="App">
       <h1 id="family_recipes_header">Family Recipes 🍽️</h1>
-      <NavBar setUser = {setUser} user = {user} />
+      <NavBar setUser = {setUser} /*user = {user}*/ />
       <Switch>
         <Route exact path="/">
           <Home />

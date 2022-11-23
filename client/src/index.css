@@ -31,6 +31,17 @@ code {
   font-weight: bolder;
 }
 
+/* #error {
+  color: #ba3939;
+  background: #ffe0e0;
+  border: 1px solid #a33a3a;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  color: #333;
+  border: 1px solid #ccc;
+} */
+
 #edit-recipe-button {
   position: absolute;
   margin-top: 10px;

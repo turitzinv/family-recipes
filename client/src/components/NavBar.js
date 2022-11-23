@@ -1,7 +1,12 @@
 import React from 'react'
 import { NavLink, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const NavBar = ({ setUser, user }) => {
+const NavBar = ({ setUser }) => {
+
+  const user = useSelector(state => state.users.user)
+
+  console.log(user)
 
   const linkStyles = {
     display: "inline-block",
@@ -58,7 +63,7 @@ const NavBar = ({ setUser, user }) => {
         Add Recipe
         </NavLink>
           <button style={linkStyles} onClick = {handleSignoutClick} >Sign out</button>
-          <p style={helloUserStyle}>Hello {user.username}</p>
+          <p style={helloUserStyle}>Hello {user}</p>
         </>
       ) : (
         <NavLink style={linkStyles} to="/login">

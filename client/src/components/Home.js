@@ -3,9 +3,9 @@ import React from 'react'
 const Home = () => {
   return (
     <div>
-      <p>Hello and welcome!</p>
-      <p>Here you can share your family recipes with the world, passing down generations of fun family meals!</p>
-      <p>User must be signed in to view and create recipes</p>
+      <h1>Hello and welcome!</h1>
+      <h3>Here you can share your family recipes with the world, passing down generations of fun family meals!</h3>
+      <h3>User must be signed in to view and create recipes</h3>
     </div>
   )
 }

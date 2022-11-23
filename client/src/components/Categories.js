@@ -11,7 +11,7 @@ const Categories = () => {
   }, [])
 
   const categoryList = allCategories.map((category) => (
-    <CategoryCard 
+    <CategoryCard
     key={category.id}
     title={category.title}
     category={category}
