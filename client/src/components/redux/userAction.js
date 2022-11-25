@@ -29,6 +29,34 @@ export const login = (details, history) => {
   };
 };
 
+
+export const signup = (details, history) => {
+  return async (dispatch) => {
+    const resp = await fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(details)
+    })
+    const data = await resp.json()
+    console.log(data)
+    const payload = {
+      user: data,
+      username: data.username,
+      password: data.password,
+      password_confirmation: data.password_confirmation
+    }
+    if(data.errors) {
+      dispatch({ type: "ERRORS", payload: data.errors })
+    } else {
+      dispatch({ type: "CLEAR_ERRORS" })
+      dispatch({ type: "SIGNUP", payload})
+      history.push('/')
+    }
+  }
+}
+
 export const currentUser = () => {
   return async dispatch => {
     const resp = await fetch("/me", {

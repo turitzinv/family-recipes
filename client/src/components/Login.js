@@ -2,8 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Error from './Error';
 
-
-
 const Login = ({ /*setUser*/ /*username*/ setUsername, /*password*/ setPassword, /*setErrors*/ /*errorRender*/ handleLogin }) => {
   const username = useSelector(state => state.users.username)
   const password = useSelector(state => state.users.password)

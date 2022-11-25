@@ -1,30 +1,43 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Error from './Error';
 
-const SignUp = ({ setUser, username, setUsername, password, setPassword, setErrors, errorRender, passwordConfirmation, setPasswordConfirmation }) => {
+const SignUp = ({ /*setUser/*, /*username*/ setUsername, /*password*/ setPassword, /*setErrors*/ /*errorRender*/ /*passwordConfirmation*/ setPasswordConfirmation, handleSignUp }) => {
+  const username = useSelector(state => state.users.username)
+  const password = useSelector(state => state.users.password)
+  const passwordConfirmation = useSelector(state =>state.users.password_confirmation)
+  const errors = useSelector(state => state.errors)
 
-  let history = useHistory()
+  //let history = useHistory()
 
-  function handleSignUp(event) {
-    event.preventDefault();
-    fetch("/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username,
-        password,
-        password_confirmation: passwordConfirmation }),
-    }).then((resp) => {
-      if (resp.ok) {
-        resp.json().then(setUser);
-        history.push("/")
-        setUsername("")
-        setPassword("")
-      } else {
-        resp.json().then((err) => setErrors(err.errors))
-      }
-    })
+  // function handleSignUp(event) {
+  //   event.preventDefault();
+  //   fetch("/signup", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ username,
+  //       password,
+  //       password_confirmation: passwordConfirmation }),
+  //   }).then((resp) => {
+  //     if (resp.ok) {
+  //       resp.json().then(setUser);
+  //       history.push("/")
+  //       setUsername("")
+  //       setPassword("")
+  //     } else {
+  //       resp.json().then((err) => setErrors(err.errors))
+  //     }
+  //   })
+  // }
+
+  function errorRender() {
+    if (errors instanceof Array) {
+      return errors.map((error) => <Error key = {error} error = {error} />);
+    } else {
+      return null;
+    }
   }
 
   return (
@@ -51,7 +64,7 @@ const SignUp = ({ setUser, username, setUsername, password, setPassword, setErro
         />
         
         <button onClick = {handleSignUp}>Create Account</button>
-        {errorRender}
+        {errorRender()}
       </form>
     </div>
   )

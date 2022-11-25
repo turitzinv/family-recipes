@@ -16,6 +16,7 @@ import { login } from './components/redux/userAction';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { currentUser } from './components/redux/userAction';
+import { signup } from './components/redux/userAction';
 
 
 function App() {
@@ -41,6 +42,16 @@ function App() {
     setPassword("")
   }
 
+  function handleSignUp(event) {
+      event.preventDefault();
+      dispatch(signup({
+        username: username,
+        password: password,
+        password_confirmation: passwordConfirmation
+      },
+      history))
+  }
+
   // useEffect(() => {
   //   fetch("/me")
   //   .then((resp) => {
@@ -53,8 +64,6 @@ function App() {
   useEffect(() => {
     dispatch(currentUser())
   }, []);
-
-  //console.log(user)
 
   // if(requesting) {
   //   return <h1>Loading...</h1>
@@ -128,6 +137,7 @@ function App() {
           setPassword = {setPassword}
           setErrors = {setErrors}
           errorRender = {errorRender()}
+          handleSignUp= {handleSignUp}
           passwordConfirmation = {passwordConfirmation}
           setPasswordConfirmation = {setPasswordConfirmation}
           />
