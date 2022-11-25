@@ -13,17 +13,19 @@ export const login = (details, history) => {
     });
     
     const data = await resp.json()
-    console.log(data, "data inside login")
     const payload = {
       user: data,
       username: data.username,
       password: data.password
     }
-
-    dispatch({ type: "LOGIN", payload });
-
+    if (data.errors) {
+      dispatch({ type: "ERRORS", payload: data.errors})
+    } else {
+      dispatch({ type: "CLEAR_ERRORS" })
+      dispatch({ type: "LOGIN", payload });
+      history.push('/')
+    }
     //dispatch({ type: "DONE_REQUESTING" });
-    //history.push('/')
   };
 };
 
@@ -50,6 +52,5 @@ export const logout = () => {
         if (resp.ok) {
           dispatch({type: "LOGOUT"})
         }
-    //type: "LOGOUT"
   }
 }

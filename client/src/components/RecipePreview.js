@@ -1,8 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const RecipePreview = ({ title, image, id, user }) => {
+const RecipePreview = ({ title, image, id, /*user*/ }) => {
   let history = useHistory();
+  const user = useSelector(state => state.users.user.user)
 
   function onClick() {
     history.push(`/recipes/${id}`);
@@ -20,7 +22,6 @@ const RecipePreview = ({ title, image, id, user }) => {
         ): (
           null
         )}
-        
       </div>
     </div>
   );

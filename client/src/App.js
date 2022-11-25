@@ -34,9 +34,11 @@ function App() {
     event.preventDefault();
     dispatch(login({
       username: username,
-      password: password, 
-    }))
-    history.push("/")
+      password: password 
+    }, 
+    history ))
+    setUsername("")
+    setPassword("")
   }
 
   // useEffect(() => {
@@ -52,7 +54,7 @@ function App() {
     dispatch(currentUser())
   }, []);
 
-  console.log(user)
+  //console.log(user)
 
   // if(requesting) {
   //   return <h1>Loading...</h1>
@@ -68,6 +70,7 @@ function App() {
     }
   }
 
+  //will have to go into each component that renders errors
   function errorRender() {
     if (errors instanceof Array) {
       return errors.map((error) => <Error key = {error} error = {error} />);
@@ -92,17 +95,17 @@ function App() {
         <Route path="/login" >
           <Login 
           /*setUser = {setUser}*/
-          username = {username}
+          //username = {username}
           setUsername = {setUsername}
-          password = {password}
+          //password = {password}
           setPassword = {setPassword}
           setErrors = {setErrors}
-          errorRender = {errorRender()}
+          // errorRender = {errorRender()}
           handleLogin = {handleLogin}
           />
         </Route>
         <Route path="/categories/:id">
-          <CategoryRecipes user = {user} />
+          <CategoryRecipes /*user = {user}*/ />
         </Route>
         <Route path="/recipe_create">
           <AddRecipe

@@ -1,15 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-//import { useHistory } from 'react-router-dom';
+import Error from './Error';
 
 
 
-const Login = ({ /*setUser*/ /*username*/ setUsername, /*password*/ setPassword, /*setErrors*/ errorRender, handleLogin }) => {
+const Login = ({ /*setUser*/ /*username*/ setUsername, /*password*/ setPassword, /*setErrors*/ /*errorRender*/ handleLogin }) => {
   const username = useSelector(state => state.users.username)
   const password = useSelector(state => state.users.password)
-
- // let history = useHistory();
-
+  const errors = useSelector(state => state.errors)
 
   // function handleLogin(event) {
   //   event.preventDefault();
@@ -31,6 +29,14 @@ const Login = ({ /*setUser*/ /*username*/ setUsername, /*password*/ setPassword,
   //   })
   // }
 
+  function errorRender() {
+    if (errors instanceof Array) {
+      return errors.map((error) => <Error key = {error} error = {error} />);
+    } else {
+      return null;
+    }
+  }
+
   return (
     <div>
       <h2>Please Login or Create an Account</h2>
@@ -48,7 +54,7 @@ const Login = ({ /*setUser*/ /*username*/ setUsername, /*password*/ setPassword,
         onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Log in</button>
-        {errorRender}
+        {errorRender()}
         <a href="/signup">Create an Account</a>
       </form>
     </div>

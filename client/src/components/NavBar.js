@@ -8,8 +8,6 @@ const NavBar = ({ setUser }) => {
   const user = useSelector(state => state.users.username);
   const dispatch = useDispatch();
 
-  console.log(user)
-
   const linkStyles = {
     display: "inline-block",
     width: "140px",
