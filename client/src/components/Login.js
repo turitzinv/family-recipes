@@ -1,35 +1,35 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { login } from './redux/userAction';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+//import { useHistory } from 'react-router-dom';
 
 
-const Login = ({ setUser, username, setUsername, password, setPassword, setErrors, errorRender }) => {
 
-  const dispatch = useDispatch();
-  //dispatch(login(user, username, password))
+const Login = ({ /*setUser*/ /*username*/ setUsername, /*password*/ setPassword, /*setErrors*/ errorRender, handleLogin }) => {
+  const username = useSelector(state => state.users.username)
+  const password = useSelector(state => state.users.password)
 
-  let history = useHistory();
+ // let history = useHistory();
 
-  function handleLogin(event) {
-    event.preventDefault();
-    fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    }).then ((resp) => {
-      if (resp.ok) {
-        resp.json().then((user) => setUser(user))
-        history.push("/")
-        setUsername("")
-        setPassword("")
-      } else {
-        resp.json().then((err) => setErrors(err.errors))
-      }
-    })
-  }
+
+  // function handleLogin(event) {
+  //   event.preventDefault();
+  //   fetch("/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ username, password }),
+  //   }).then ((resp) => {
+  //     if (resp.ok) {
+  //       resp.json().then((user) => setUser(user))
+  //       history.push("/")
+  //       setUsername("")
+  //       setPassword("")
+  //     } else {
+  //       resp.json().then((err) => setErrors(err.errors))
+  //     }
+  //   })
+  // }
 
   return (
     <div>

@@ -1,10 +1,12 @@
 import React from 'react'
 import { NavLink, useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from './redux/userAction';
 
 const NavBar = ({ setUser }) => {
 
-  const user = useSelector(state => state.users.user)
+  const user = useSelector(state => state.users.username);
+  const dispatch = useDispatch();
 
   console.log(user)
 
@@ -36,16 +38,21 @@ const NavBar = ({ setUser }) => {
 
   let history = useHistory()
 
+  // function handleSignoutClick() {
+  //   fetch("/logout", {
+  //     method: "DELETE"
+  //   })
+  //   .then((resp) => {
+  //     if (resp.ok) {
+  //       setUser(null)
+  //       history.push("/login")
+  //     }
+  //   })
+  // }
+
   function handleSignoutClick() {
-    fetch("/logout", {
-      method: "DELETE"
-    })
-    .then((resp) => {
-      if (resp.ok) {
-        setUser(null)
-        history.push("/login")
-      }
-    })
+    dispatch(logout())
+    history.push("/login")
   }
 
 

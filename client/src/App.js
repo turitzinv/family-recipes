@@ -12,16 +12,32 @@ import Error from './components/Error';
 import EditComment from './components/EditComment';
 import AddRecipe from './components/AddRecipe';
 import EditRecipe from './components/EditRecipe';
+import { login } from './components/redux/userAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { currentUser } from './components/redux/userAction';
 
 
 function App() {
-  const [user, setUser] = useState(null)
+  //const [user, setUser] = useState(null)
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
 
+  const dispatch = useDispatch();
+  const history = useHistory();
+  //const requesting = useSelector(state => state.requesting);
+  const user = useSelector(state => state.users.user.user)
 
+  function handleLogin(event) {
+    event.preventDefault();
+    dispatch(login({
+      username: username,
+      password: password, 
+    }))
+    history.push("/")
+  }
 
   // useEffect(() => {
   //   fetch("/me")
@@ -32,14 +48,15 @@ function App() {
   //   })
   // }, []);
 
-    useEffect(() => {
-    fetch("/me")
-    .then((resp) => {
-      if (resp.ok) {
-        resp.json().then((user) => setUser(user));
-      }
-    })
+  useEffect(() => {
+    dispatch(currentUser())
   }, []);
+
+  console.log(user)
+
+  // if(requesting) {
+  //   return <h1>Loading...</h1>
+  // }
 
   let currentUserId
 
@@ -64,7 +81,7 @@ function App() {
   return (
     <div className="App">
       <h1 id="family_recipes_header">Family Recipes 🍽️</h1>
-      <NavBar setUser = {setUser} /*user = {user}*/ />
+      <NavBar /*setUser = {setUser} user = {user}*/ />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -74,13 +91,14 @@ function App() {
         </Route>
         <Route path="/login" >
           <Login 
-          setUser = {setUser}
+          /*setUser = {setUser}*/
           username = {username}
           setUsername = {setUsername}
           password = {password}
           setPassword = {setPassword}
           setErrors = {setErrors}
           errorRender = {errorRender()}
+          handleLogin = {handleLogin}
           />
         </Route>
         <Route path="/categories/:id">
@@ -100,7 +118,7 @@ function App() {
         </Route>
         <Route path="/signup">
           <SignUp 
-          setUser = {setUser}
+          /*setUser = {setUser} */
           username = {username}
           setUsername = {setUsername}
           password = {password}

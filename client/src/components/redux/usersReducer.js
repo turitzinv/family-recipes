@@ -1,11 +1,17 @@
 const initialState = {
-  user: null,
-};
+  user: {}, //originally null
+  username: "",
+  password: ""
+}
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case "LOGIN":
-      return action.payload.user;
+      return { 
+        user: action.payload,
+        username: action.payload.username,
+        password: action.payload.password
+      }
 
     case "LOGOUT":
       return initialState
