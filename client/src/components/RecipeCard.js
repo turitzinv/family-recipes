@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import CommentCard from "./CommentCard";
 import AddComment from "./AddComment";
+import { useSelector } from "react-redux";
 
-const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
+const RecipeCard = ({ /*currentUserId*/ errorRender, setErrors }) => {
   const [recipe, setRecipe] = useState({});
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState([]);
@@ -12,6 +13,9 @@ const RecipeCard = ({ currentUserId, errorRender, setErrors }) => {
   const { id } = useParams();
 
   let history = useHistory();
+
+  const currentUserId = useSelector(state => state.users.user.user.id)
+  console.log(currentUserId)
 
   useEffect(() => {
     fetch(`/recipes/${id}`)

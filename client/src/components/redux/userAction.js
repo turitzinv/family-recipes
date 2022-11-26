@@ -2,7 +2,7 @@
 
 export const login = (details, history) => {
   return async (dispatch) => {
-   // dispatch({ type: "REQUESTING" });
+   dispatch({ type: "REQUESTING" });
 
     const resp = await fetch("/login", {
       method: "POST",
@@ -23,15 +23,18 @@ export const login = (details, history) => {
     } else {
       dispatch({ type: "CLEAR_ERRORS" })
       dispatch({ type: "LOGIN", payload });
+      dispatch({ type: "DONE_REQUESTING" });
       history.push('/')
     }
-    //dispatch({ type: "DONE_REQUESTING" });
+
   };
 };
 
 
 export const signup = (details, history) => {
   return async (dispatch) => {
+    dispatch({ type: "REQUESTING" });
+
     const resp = await fetch("/signup", {
       method: "POST",
       headers: {
@@ -52,6 +55,7 @@ export const signup = (details, history) => {
     } else {
       dispatch({ type: "CLEAR_ERRORS" })
       dispatch({ type: "SIGNUP", payload})
+      dispatch({ type: "DONE_REQUESTING" });
       history.push('/')
     }
   }
@@ -59,6 +63,8 @@ export const signup = (details, history) => {
 
 export const currentUser = () => {
   return async dispatch => {
+    dispatch({ type: "REQUESTING" });
+
     const resp = await fetch("/me", {
       headers: { 
         "Content-Type": "application/json"
@@ -68,6 +74,7 @@ export const currentUser = () => {
 
     if(data) {
       dispatch({ type: "LOGIN", payload: data })
+      dispatch({ type: "DONE_REQUESTING" });
     }
   }
 }

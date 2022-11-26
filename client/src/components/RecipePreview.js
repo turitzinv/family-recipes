@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 const RecipePreview = ({ title, image, id, /*user*/ }) => {
   let history = useHistory();
   const user = useSelector(state => state.users.user.user)
+  console.log(user)
 
   function onClick() {
     history.push(`/recipes/${id}`);

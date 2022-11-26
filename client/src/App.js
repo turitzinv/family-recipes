@@ -28,7 +28,7 @@ function App() {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  //const requesting = useSelector(state => state.requesting);
+  const requesting = useSelector(state => state.requesting);
   const user = useSelector(state => state.users.user.user)
 
   function handleLogin(event) {
@@ -65,9 +65,9 @@ function App() {
     dispatch(currentUser())
   }, []);
 
-  // if(requesting) {
-  //   return <h1>Loading...</h1>
-  // }
+  if(requesting) {
+    return <h1>Loading...</h1>
+  }
 
   let currentUserId
 
@@ -130,15 +130,15 @@ function App() {
         </Route>
         <Route path="/signup">
           <SignUp 
-          /*setUser = {setUser} */
-          username = {username}
+          // setUser = {setUser}
+          // username = {username}
           setUsername = {setUsername}
-          password = {password}
+          // password = {password}
           setPassword = {setPassword}
-          setErrors = {setErrors}
-          errorRender = {errorRender()}
+          // setErrors = {setErrors}
+          // errorRender = {errorRender()}
           handleSignUp= {handleSignUp}
-          passwordConfirmation = {passwordConfirmation}
+          // passwordConfirmation = {passwordConfirmation}
           setPasswordConfirmation = {setPasswordConfirmation}
           />
         </Route>
