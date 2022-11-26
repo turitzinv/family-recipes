@@ -104,9 +104,9 @@ function App() {
         <Route path="/login" >
           <Login 
           /*setUser = {setUser}*/
-          //username = {username}
+          username = {username}
           setUsername = {setUsername}
-          //password = {password}
+          password = {password}
           setPassword = {setPassword}
           setErrors = {setErrors}
           // errorRender = {errorRender()}
@@ -131,9 +131,9 @@ function App() {
         <Route path="/signup">
           <SignUp 
           // setUser = {setUser}
-          // username = {username}
+          username = {username}
           setUsername = {setUsername}
-          // password = {password}
+          password = {password}
           setPassword = {setPassword}
           // setErrors = {setErrors}
           // errorRender = {errorRender()}

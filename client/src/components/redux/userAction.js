@@ -23,10 +23,9 @@ export const login = (details, history) => {
     } else {
       dispatch({ type: "CLEAR_ERRORS" })
       dispatch({ type: "LOGIN", payload });
-      dispatch({ type: "DONE_REQUESTING" });
       history.push('/')
     }
-
+    dispatch({ type: "DONE_REQUESTING" });
   };
 };
 
@@ -55,9 +54,9 @@ export const signup = (details, history) => {
     } else {
       dispatch({ type: "CLEAR_ERRORS" })
       dispatch({ type: "SIGNUP", payload})
-      dispatch({ type: "DONE_REQUESTING" });
       history.push('/')
     }
+    dispatch({ type: "DONE_REQUESTING" });
   }
 }
 

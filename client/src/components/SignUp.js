@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Error from './Error';
 
-const SignUp = ({ /*setUser/*, /*username*/ setUsername, /*password*/ setPassword, /*setErrors*/ /*errorRender*/ /*passwordConfirmation*/ setPasswordConfirmation, handleSignUp }) => {
-  const username = useSelector(state => state.users.username)
-  const password = useSelector(state => state.users.password)
+const SignUp = ({ /*setUser*/ username, setUsername, password, setPassword, /*setErrors*/ /*errorRender*/ /*passwordConfirmation*/ setPasswordConfirmation, handleSignUp }) => {
+  //const username = useSelector(state => state.users.username)
+  //const password = useSelector(state => state.users.password)
   const passwordConfirmation = useSelector(state =>state.users.password_confirmation)
   const errors = useSelector(state => state.errors)
 
