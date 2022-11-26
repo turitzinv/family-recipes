@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 const AddRecipe = ({ errorRender, setErrors }) => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ const AddRecipe = ({ errorRender, setErrors }) => {
     image_url: null,
     category_id: "default"
   })
+  const currentUser = useSelector(state => state.users.user)
+  const currentUserId = currentUser.id
 
   function handleInputChange(event) {
     setFormData({
@@ -43,7 +46,8 @@ const AddRecipe = ({ errorRender, setErrors }) => {
         ingredients: formData.ingredients,
         instructions: formData.instructions,
         image_url: formData.image_url,
-        category_id: formData.category_id
+        category_id: formData.category_id,
+        author_id: currentUserId
       }),
     }).then((resp => {
       if (resp.ok) {

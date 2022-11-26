@@ -79,7 +79,6 @@ function App() {
   //   }
   // }
 
-  //will have to go into each component that renders errors
   function errorRender() {
     if (errors instanceof Array) {
       return errors.map((error) => <Error key = {error} error = {error} />);

@@ -13,15 +13,13 @@ rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
   end
 
   def create
-    recipe = Recipe.create!(title: params[:title], ingredients: params[:ingredients], instructions: params[:instructions], author_id: session[:user_id], image_url: params[:image_url], category_id: params[:category_id])
+    recipe = Recipe.create!(recipe_params)
     render json: recipe, status: :created
   end
 
-  #For Update, use strong params and permit
   def update
-    #byebug
     recipe = Recipe.find(params[:id])
-    recipe.update!(title: params[:title], ingredients: params[:ingredients], instructions: params[:instructions], author_id: session[:user_id], image_url: params[:image_url], category_id: params[:category_id])
+    recipe.update!(recipe_params)
     render json: recipe
   end
 
@@ -32,6 +30,10 @@ rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
   end
 
   private
+
+  def recipe_params
+    params.permit(:title, :ingredients, :instructions, :author_id, :image_url, :category_id)
+  end
 
   def record_invalid(invalid)
     render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
