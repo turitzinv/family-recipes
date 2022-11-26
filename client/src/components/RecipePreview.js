@@ -4,8 +4,7 @@ import { useSelector } from "react-redux";
 
 const RecipePreview = ({ title, image, id, /*user*/ }) => {
   let history = useHistory();
-  const user = useSelector(state => state.users.user.user)
-  console.log(user)
+  const user = useSelector(state => state.users)
 
   function onClick() {
     history.push(`/recipes/${id}`);
@@ -16,7 +15,7 @@ const RecipePreview = ({ title, image, id, /*user*/ }) => {
       <img class="card-img-top" src={image} alt={title} />
       <div class="card-body">
         <h2 class="card-title">{title}</h2>
-        {user ? (
+        {user.isLoggedIn ? (
           <button class="btn btn-primary" onClick={onClick}>
           View Details
         </button>

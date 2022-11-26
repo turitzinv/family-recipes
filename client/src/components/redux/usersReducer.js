@@ -2,7 +2,8 @@ const initialState = {
   user: {}, //originally null
   username: "",
   password: "",
-  password_confirmation: ""
+  password_confirmation: "",
+  isLoggedIn: false
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -11,7 +12,8 @@ const usersReducer = (state = initialState, action) => {
       return { 
         user: action.payload,
         username: action.payload.username,
-        password: action.payload.password
+        password: action.payload.password,
+        isLoggedIn: true
       }
 
     case "SIGNUP":
@@ -19,7 +21,8 @@ const usersReducer = (state = initialState, action) => {
         user: action.payload,
         username: action.payload.username,
         password: action.payload.password,
-        password_confirmation: action.payload.password_confirmation
+        password_confirmation: action.payload.password_confirmation,
+        isLoggedIn: true
       }
 
     case "LOGOUT":

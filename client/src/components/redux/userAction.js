@@ -71,10 +71,10 @@ export const currentUser = () => {
     })
     const data = await resp.json();
 
-    if(data) {
-      dispatch({ type: "LOGIN", payload: data })
-      dispatch({ type: "DONE_REQUESTING" });
+    if(data.user) {
+      dispatch({ type: "LOGIN", payload: data });
     }
+    dispatch({ type: "DONE_REQUESTING" })
   }
 }
 

@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RecipePreview from "./RecipePreview";
 import { useSelector } from "react-redux";
-import usersReducer from "./redux/usersReducer";
 
-const CategoryRecipes = ({ /*user*/}) => {
+const CategoryRecipes = (/*user*/) => {
   const { id } = useParams();
   const [allRecipes, setAllRecipes] = useState([]);
-  const user = useSelector(state => state.users.user.user)
+  const user = useSelector((state) => state.users);
 
   useEffect(() => {
     fetch(`/categories/${id}`)
@@ -33,12 +32,10 @@ const CategoryRecipes = ({ /*user*/}) => {
 
   return (
     <div>
-      {user ? null : (
+      {user.isLoggedIn ? null : (
         <h3>Log in or Create an account to view Recipe details</h3>
       )}
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        {recipeRender()}
-      </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4">{recipeRender()}</div>
     </div>
   );
 };
