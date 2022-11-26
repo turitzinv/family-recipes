@@ -4,7 +4,7 @@ import CommentCard from "./CommentCard";
 import AddComment from "./AddComment";
 import { useSelector } from "react-redux";
 
-const RecipeCard = ({ /*currentUserId*/ errorRender, setErrors }) => {
+const RecipeCard = () => {
   const [recipe, setRecipe] = useState({});
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState([]);
@@ -14,8 +14,8 @@ const RecipeCard = ({ /*currentUserId*/ errorRender, setErrors }) => {
 
   let history = useHistory();
 
-  const currentUserId = useSelector(state => state.users.user.user.id)
-  console.log(currentUserId)
+  const currentUser = useSelector(state => state.users)
+  const currentUserId = currentUser.user.id
 
   useEffect(() => {
     fetch(`/recipes/${id}`)
@@ -67,11 +67,9 @@ const RecipeCard = ({ /*currentUserId*/ errorRender, setErrors }) => {
   function addCommentClick() {
     setCommentInput(
       <AddComment
-        errorRender={errorRender}
         setCommentInput={setCommentInput}
         currentUserId={currentUserId}
         recipe_id={recipe.id}
-        setErrors={setErrors}
         handleAddingComment={handleAddingComment}
       />
     );
@@ -89,7 +87,7 @@ const RecipeCard = ({ /*currentUserId*/ errorRender, setErrors }) => {
   }
 
   function backRecipeClick() {
-    history.goBack();
+    history.push(`/categories/${recipe.category_id}`);
   }
 
   return (
@@ -98,10 +96,10 @@ const RecipeCard = ({ /*currentUserId*/ errorRender, setErrors }) => {
       <img id="recipe-image" src={recipe.image_url} alt={recipe.title} />
       {recipe.author_id === currentUserId ? (
         <>
-          <button id="edit-recipe-button" class="btn btn-primary" onClick={handleEditRecipeClick}>
+          <button id="edit-recipe-button" className = "btn btn-primary" onClick={handleEditRecipeClick}>
             Edit Recipe
           </button>
-          <button id="delete-recipe-button" class="btn btn-primary" onClick={handleDeleteClick}>
+          <button id="delete-recipe-button" className = "btn btn-primary" onClick={handleDeleteClick}>
             Delete Recipe
           </button>
         </>

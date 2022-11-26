@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import Error from './Error'
 
-const AddComment = ({ errorRender, setCommentInput, currentUserId, recipe_id, setErrors, handleAddingComment }) => {
+const AddComment = ({ setCommentInput, currentUserId, recipe_id, handleAddingComment }) => {
   const [comment, setComment] = useState({
     description: ""
   })
+  const [commentError, setCommentError] = useState([])
 
   function closeComment() {
     setCommentInput([])
@@ -25,7 +27,7 @@ const AddComment = ({ errorRender, setCommentInput, currentUserId, recipe_id, se
         resp.json().then((newComment) => handleAddingComment(newComment))
         setCommentInput("")
       } else {
-        resp.json().then((err) => setErrors(err.errors))
+        resp.json().then((err) => setCommentError(err.errors))
       }
     })
   }
@@ -37,9 +39,17 @@ const AddComment = ({ errorRender, setCommentInput, currentUserId, recipe_id, se
     })
   }
 
+  function errorRender() {
+    if (commentError instanceof Array) {
+      return commentError.map((error) => <Error key = {error} error = {error} />);
+    } else {
+      return null;
+    }
+  }
+
   return (
     <div>
-      {errorRender}
+      {errorRender()}
       <textarea id="comment-input" name="description" onChange={handleChange} value={comment.description} placeholder="Add your comment"/>
       <button id="add-comment" class="btn btn-primary" onClick={addCommentClick}>Add</button>
       <button id="close comment" class="btn btn-primary" onClick={closeComment}>Close</button>

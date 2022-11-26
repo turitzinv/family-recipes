@@ -69,15 +69,15 @@ function App() {
     return <h1>Loading...</h1>
   }
 
-  let currentUserId
+  // let currentUserId
 
-  function ifUser() {
-    if (user instanceof Object) {
-      return  currentUserId = user.id
-    } else {
-      return null
-    }
-  }
+  // function ifUser() {
+  //   if (user instanceof Object) {
+  //     return  currentUserId = user.id
+  //   } else {
+  //     return null
+  //   }
+  // }
 
   //will have to go into each component that renders errors
   function errorRender() {
@@ -88,7 +88,7 @@ function App() {
     }
   }
 
-  ifUser()
+  // ifUser()
 
   return (
     <div className="App">
@@ -123,10 +123,7 @@ function App() {
           />
         </Route>
         <Route path="/recipes/:id">
-          <RecipeCard currentUserId={currentUserId} 
-          errorRender = {errorRender()}
-          setErrors = {setErrors}
-          />
+          <RecipeCard />
         </Route>
         <Route path="/signup">
           <SignUp 
