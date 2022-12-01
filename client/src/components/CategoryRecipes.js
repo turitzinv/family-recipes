@@ -5,21 +5,35 @@ import { useSelector } from "react-redux";
 
 const CategoryRecipes = (/*user*/) => {
   const { id } = useParams();
-  const [allRecipes, setAllRecipes] = useState([]);
+  //const [allRecipes, setAllRecipes] = useState([]);
   const user = useSelector((state) => state.users);
   const recipes = useSelector((state => state.recipes))
 
-  console.log(recipes)
+  const categoryRecipes = recipes.filter((recipe) => {
+     return recipe.category_id === parseInt(id)
+    }
+  );  
 
-  useEffect(() => {
-    fetch(`/categories/${id}`)
-      .then((resp) => resp.json())
-      .then((categoryRecipes) => setAllRecipes(categoryRecipes.recipes));
-  }, [id]);
+  //refreshing the page gives error...TypeError: recipes.forEach is not a function
+    //const categoryRecipes = []
+//   recipes.forEach((recipe) => {
+//     console.log(recipe.category_id)
+//     if (recipe.category_id === parseInt(id)) {
+//       return categoryRecipes.push(recipe)
+//     }
+//    }
+//  );
+
+  //Old useEffect before Redux
+  // useEffect(() => {
+  //   fetch(`/categories/${id}`)
+  //     .then((resp) => resp.json())
+  //     .then((categoryRecipes) => setAllRecipes(categoryRecipes.recipes));
+  // }, [id]);
 
   function recipeRender() {
-    if (allRecipes instanceof Array) {
-      return allRecipes.map((recipe) => (
+    if (categoryRecipes instanceof Array) {
+      return categoryRecipes.map((recipe) => (
         <RecipePreview
           key={recipe.id}
           id={recipe.id}

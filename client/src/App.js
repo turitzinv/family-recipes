@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { currentUser } from './components/redux/userAction';
 import { signup } from './components/redux/userAction';
-import { allRecipes } from './components/redux/recipeAction';
+import { allRecipes } from './components/redux/recipesAction';
 
 
 function App() {

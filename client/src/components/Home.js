@@ -10,4 +10,7 @@ const Home = () => {
   )
 }
 
+//remove hello and welcome
+//Make directions table of how to use application?
+
 export default Home
