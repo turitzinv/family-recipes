@@ -1,8 +1,6 @@
-
-
 export const login = (details, history) => {
   return async (dispatch) => {
-   dispatch({ type: "REQUESTING" });
+    dispatch({ type: "REQUESTING" });
 
     const resp = await fetch("/login", {
       method: "POST",
@@ -11,24 +9,23 @@ export const login = (details, history) => {
       },
       body: JSON.stringify(details),
     });
-    
-    const data = await resp.json()
+
+    const data = await resp.json();
     const payload = {
       user: data,
       username: data.username,
-      password: data.password
-    }
+      password: data.password,
+    };
     if (data.errors) {
-      dispatch({ type: "ERRORS", payload: data.errors})
+      dispatch({ type: "ERRORS", payload: data.errors });
     } else {
-      dispatch({ type: "CLEAR_ERRORS" })
+      dispatch({ type: "CLEAR_ERRORS" });
       dispatch({ type: "LOGIN", payload });
-      history.push('/')
+      history.push("/");
     }
     dispatch({ type: "DONE_REQUESTING" });
   };
 };
-
 
 export const signup = (details, history) => {
   return async (dispatch) => {
@@ -39,52 +36,52 @@ export const signup = (details, history) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(details)
-    })
-    const data = await resp.json()
-    console.log(data)
+      body: JSON.stringify(details),
+    });
+    const data = await resp.json();
+    console.log(data);
     const payload = {
       user: data,
       username: data.username,
       password: data.password,
-      password_confirmation: data.password_confirmation
-    }
-    if(data.errors) {
-      dispatch({ type: "ERRORS", payload: data.errors })
+      password_confirmation: data.password_confirmation,
+    };
+    if (data.errors) {
+      dispatch({ type: "ERRORS", payload: data.errors });
     } else {
-      dispatch({ type: "CLEAR_ERRORS" })
-      dispatch({ type: "SIGNUP", payload})
-      history.push('/')
+      dispatch({ type: "CLEAR_ERRORS" });
+      dispatch({ type: "SIGNUP", payload });
+      history.push("/");
     }
     dispatch({ type: "DONE_REQUESTING" });
-  }
-}
+  };
+};
 
 export const currentUser = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({ type: "REQUESTING" });
 
     const resp = await fetch("/me", {
-      headers: { 
-        "Content-Type": "application/json"
-      }
-    })
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     const data = await resp.json();
 
-    if(data) {
+    if (data) {
       dispatch({ type: "LOGIN", payload: data });
     }
-    dispatch({ type: "DONE_REQUESTING" })
-  }
-}
+    dispatch({ type: "DONE_REQUESTING" });
+  };
+};
 
 export const logout = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     const resp = await fetch("/logout", {
-          method: "DELETE"
-        })
-        if (resp.ok) {
-          dispatch({type: "LOGOUT"})
-        }
-  }
-}
+      method: "DELETE",
+    });
+    if (resp.ok) {
+      dispatch({ type: "LOGOUT" });
+    }
+  };
+};

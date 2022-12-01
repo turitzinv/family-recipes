@@ -12,8 +12,6 @@ const AddRecipe = ({ errorRender, setErrors }) => {
   const currentUser = useSelector(state => state.users.user)
   const currentUserId = currentUser.id
 
-  console.log(currentUserId)
-
   function handleInputChange(event) {
     setFormData({
       ...formData,

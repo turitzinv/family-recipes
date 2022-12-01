@@ -7,8 +7,9 @@ const CategoryRecipes = (/*user*/) => {
   const { id } = useParams();
   const [allRecipes, setAllRecipes] = useState([]);
   const user = useSelector((state) => state.users);
+  const recipes = useSelector((state => state.recipes))
 
-  console.log(allRecipes)
+  console.log(recipes)
 
   useEffect(() => {
     fetch(`/categories/${id}`)

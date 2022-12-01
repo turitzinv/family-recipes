@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { currentUser } from './components/redux/userAction';
 import { signup } from './components/redux/userAction';
-import RecipePreview from './components/RecipePreview';
+import { allRecipes } from './components/redux/recipeAction';
 
 
 function App() {
@@ -26,9 +26,9 @@ function App() {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
-  const [recipePreview, setRecipePreview] = useState({})
+  const [recipes, setRecipes] = useState({})
 
-  console.log(recipePreview)
+  console.log(recipes)
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -74,6 +74,10 @@ function App() {
   useEffect(() => {
     dispatch(currentUser())
   }, []);
+
+  useEffect(() => {
+    dispatch(allRecipes())
+  })
 
   if(requesting) {
     return <h1>Loading...</h1>
