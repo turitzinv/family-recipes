@@ -12,6 +12,8 @@ const AddRecipe = ({ errorRender, setErrors }) => {
   const currentUser = useSelector(state => state.users.user)
   const currentUserId = currentUser.id
 
+  console.log(currentUserId)
+
   function handleInputChange(event) {
     setFormData({
       ...formData,
@@ -29,26 +31,36 @@ const AddRecipe = ({ errorRender, setErrors }) => {
   function fileSelectedHandler(event) {
     setFormData({
       ...formData,
-      [event.target.name]: URL.createObjectURL(event.target.files[0])
+      [event.target.name]: event.target.files[0]
 
     })
   }
 
   function handleRecipeSubmit(e) {
     e.preventDefault()
+
+    const sendFormData = new FormData()
+    sendFormData.append('title', formData.title)
+    sendFormData.append('ingredients', formData.ingredients)
+    sendFormData.append('instructions', formData.instructions)
+    sendFormData.append('image_url', formData.image_url)
+    sendFormData.append('category_id', formData.category_id)
+    sendFormData.append('author_id', currentUserId)
+
     fetch("/recipes", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        title: formData.title,
-        ingredients: formData.ingredients,
-        instructions: formData.instructions,
-        image_url: formData.image_url,
-        category_id: formData.category_id,
-        author_id: currentUserId
-      }),
+      // headers: {
+      //   "Content-Type": "application/json"
+      // },
+      body: sendFormData,
+      // JSON.stringify({
+      //   title: formData.title,
+      //   ingredients: formData.ingredients,
+      //   instructions: formData.instructions,
+      //   image_url: formData.image_url,
+      //   category_id: formData.category_id,
+      //   author_id: currentUserId
+      // }),
     }).then((resp => {
       if (resp.ok) {
         alert("Recipe Added!")
@@ -92,6 +104,7 @@ const AddRecipe = ({ errorRender, setErrors }) => {
         type="file"
         name="image_url"
         placeholder="Image Link"
+        accept="image/*"
         onChange={fileSelectedHandler}
         />
         <select onChange={handleSelectChange} name="category_id" defaultValue="default">

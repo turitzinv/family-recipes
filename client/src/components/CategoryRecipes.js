@@ -8,6 +8,8 @@ const CategoryRecipes = (/*user*/) => {
   const [allRecipes, setAllRecipes] = useState([]);
   const user = useSelector((state) => state.users);
 
+  console.log(allRecipes)
+
   useEffect(() => {
     fetch(`/categories/${id}`)
       .then((resp) => resp.json())
@@ -35,7 +37,7 @@ const CategoryRecipes = (/*user*/) => {
       {user.isLoggedIn ? null : (
         <h3>Log in or Create an account to view Recipe details</h3>
       )}
-      <div class="row row-cols-1 row-cols-md-3 g-4">{recipeRender()}</div>
+      <div className="row row-cols-1 row-cols-md-3 g-4">{recipeRender()}</div>
     </div>
   );
 };

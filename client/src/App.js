@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { currentUser } from './components/redux/userAction';
 import { signup } from './components/redux/userAction';
+import RecipePreview from './components/RecipePreview';
 
 
 function App() {
@@ -25,11 +26,14 @@ function App() {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
+  const [recipePreview, setRecipePreview] = useState({})
+
+  console.log(recipePreview)
 
   const dispatch = useDispatch();
   const history = useHistory();
   const requesting = useSelector(state => state.requesting);
-  const user = useSelector(state => state.users.user.user)
+  //const user = useSelector(state => state.users.user.user)
 
   function handleLogin(event) {
     event.preventDefault();
@@ -60,6 +64,12 @@ function App() {
   //     }
   //   })
   // }, []);
+
+  // useEffect(() => {
+  //   fetch("/recipes/1")
+  //   .then((resp) => resp.json())
+  //   .then((preview) => setRecipePreview(preview))
+  // }, [])
 
   useEffect(() => {
     dispatch(currentUser())
@@ -134,7 +144,7 @@ function App() {
           // setErrors = {setErrors}
           // errorRender = {errorRender()}
           handleSignUp= {handleSignUp}
-          // passwordConfirmation = {passwordConfirmation}
+          passwordConfirmation = {passwordConfirmation}
           setPasswordConfirmation = {setPasswordConfirmation}
           />
         </Route>

@@ -3,8 +3,8 @@ class Recipe < ApplicationRecord
   has_many :users, through: :comments
   belongs_to :category
 
-  #For ActiveStorage, removed due to memory leak?
-  #has_one_attached :image_url
+  #For ActiveStorage, including this prevents rails db:reset due to invalid signature.
+  has_one_attached :image_url
 
   validates :title, presence: true
   validates :ingredients, presence: true

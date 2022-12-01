@@ -33,50 +33,56 @@ Category.create(title: "Dessert")
 #   category_id: 4
 # )
 
-Recipe.create(
+#lemonCakeImage = File.open(io: File.open("app/Images/lemon_cake.jpeg"))
+lemonCake = Recipe.create(
   title: "Lemon Cake",
   ingredients: "1 box Duncan Hines lemon cake mix. 1 small box of lemon jello. 1 cup of water. 4 eggs. 1 cup vegetable oil",
   instructions: "Mix all ingredients together. Pour into sprayed with baking spray mold. Bake at 350 degrees for 50 minutes. After baking, let cake cool in mold for 10-15mins. Flip cake onto plate. Poke top of cake with a few holes (small) all around. Glaze ingredients involve 1/2 cup of lemon juice (2 lemons). Confectioners sugar, add enough to give the lemon juice a thickening appearance. Pour glaze all around cake.",
   author_id: 1,
-  image_url: "https://user-images.githubusercontent.com/93049794/200454200-8d4b3f4d-aaeb-4406-a772-48ce23b3eb9b.jpeg",
+  #image_url: "https://user-images.githubusercontent.com/93049794/200454200-8d4b3f4d-aaeb-4406-a772-48ce23b3eb9b.jpeg",
+  #image_url: ActionController::Base.helpers.image_path("app/Images/lemon_cake.jpeg"),
   category_id: 4
 )
+#lemonCake.image_url.attach(io: File.open('app/Images/lemon_cake.jpeg'), filename: 'lemon_cake.jpeg')
+#lemonCake.image_url.attach(io: File.open(Rails.root.join('app/Images/lemon_cake.jpeg')), filename: 'lemon_cake.jpeg')
 
-Recipe.create(
-  title: "Thin Pancakes (Crepes)",
-  ingredients: "3 eggs. 1 oz fresh (compressed) yeast. 1/4 cup warm water. 2 cups lukewarm water. 1 tsp salt. 1 Tbsp sugar. 2-2.5 cups flour. 2 cups milk Butter for frying.",
-  instructions: "Separate the egg yolks and whites. Dissolve the yeast in 1/4 cup warm water. Add the rest of water, egg yols, salt and sugar. Mix well together, add the flour and beat well.  Beat the egg whites stiff, add to mixture, fold in carefully. Allow dough to rise until it doubles in bulk (about 2-2.5 hours). Boil the mix and pour it into the dough while still boiing hot. Mix fast and well. Cover bowl and let rise for 1 hour. Should become full of bubbles. Do not mix or stir. Heat a frying pan and brush it with butter. use ladle and scoop out half a cup of dough. Pour onto hot frying pan. Fry until golden around edges. Remove to an oven proof plate and keep hot. Repeat process.",
-  image_url: "https://user-images.githubusercontent.com/93049794/201743442-372bceec-db9c-4d4d-91ed-bf2578e48d35.png",
-  author_id: 3,
-  category_id: 1
-)
+#thinPancakeImage = File.open(Rails.root.join, "app/Images/thin_pancakes.jpg")
+# Recipe.create(
+#   title: "Thin Pancakes (Crepes)",
+#   ingredients: "3 eggs. 1 oz fresh (compressed) yeast. 1/4 cup warm water. 2 cups lukewarm water. 1 tsp salt. 1 Tbsp sugar. 2-2.5 cups flour. 2 cups milk Butter for frying.",
+#   instructions: "Separate the egg yolks and whites. Dissolve the yeast in 1/4 cup warm water. Add the rest of water, egg yols, salt and sugar. Mix well together, add the flour and beat well.  Beat the egg whites stiff, add to mixture, fold in carefully. Allow dough to rise until it doubles in bulk (about 2-2.5 hours). Boil the mix and pour it into the dough while still boiing hot. Mix fast and well. Cover bowl and let rise for 1 hour. Should become full of bubbles. Do not mix or stir. Heat a frying pan and brush it with butter. use ladle and scoop out half a cup of dough. Pour onto hot frying pan. Fry until golden around edges. Remove to an oven proof plate and keep hot. Repeat process.",
+#   #image_url: "https://user-images.githubusercontent.com/93049794/201743442-372bceec-db9c-4d4d-91ed-bf2578e48d35.png",
+#   image_url: ActionController::Base.helpers.image_path("app/Images/thin_pancakes.jpg"),
+#   author_id: 3,
+#   category_id: 1
+# )
 
-Recipe.create(
-  title: "Oreo Truffles",
-  ingredients: "1 package of Oreo cookie. 1 block cream cheese. 1 bag of dark chocolate for melting.",
-  instructions: "In a food processor, add the package of Oreo cookies. Transfer the crumbs to a bowl and mix softened cream cheese. Melt chocolates. Roll mixtures into balls. Dip balls into melted chocolate (white/dark). place on wax lined cookie sheet. Sprinkle with remaining cookie crumbs. Sprinkle with jimmies. Let cool in refrigerator.",
-  author_id: 2,
-  image_url: "https://user-images.githubusercontent.com/93049794/201747060-3e08a3f5-bca9-4212-81da-e3014042c07b.jpg",
-  category_id: 4
-)
+# Recipe.create(
+#   title: "Oreo Truffles",
+#   ingredients: "1 package of Oreo cookie. 1 block cream cheese. 1 bag of dark chocolate for melting.",
+#   instructions: "In a food processor, add the package of Oreo cookies. Transfer the crumbs to a bowl and mix softened cream cheese. Melt chocolates. Roll mixtures into balls. Dip balls into melted chocolate (white/dark). place on wax lined cookie sheet. Sprinkle with remaining cookie crumbs. Sprinkle with jimmies. Let cool in refrigerator.",
+#   author_id: 2,
+#   image_url: "https://user-images.githubusercontent.com/93049794/201747060-3e08a3f5-bca9-4212-81da-e3014042c07b.jpg",
+#   category_id: 4
+# )
 
-Recipe.create(
-  title: "Cherry Bombs",
-  ingredients: "Maraschino cherries. Whipped Cream flavored Vodka. Caramel flavored Vodka. Melted semi-sweet or dark schocolate - with shortening (white, if 4th of July). Sugar sprinkles (blue, if 4th of July).",
-  instructions: "Strain juice from cherries and soak in liquor - soak for several days, but 2 days will suffice. Drain cherries and dry them off with a paper towel (so they stick to the chocolate better). If using sugar sprinkles, roll a little in the sprinkles, then set the cherries on a baking sheet lined with max paper. You can also dip in one chocolate (semi or dark) then drizzle with white, or vice versa.",
-  author_id: 1,
-  image_url: "https://user-images.githubusercontent.com/93049794/201749031-d124810f-2187-492e-83d8-0455dfc32284.jpg",
-  category_id: 4
-)
+# Recipe.create(
+#   title: "Cherry Bombs",
+#   ingredients: "Maraschino cherries. Whipped Cream flavored Vodka. Caramel flavored Vodka. Melted semi-sweet or dark schocolate - with shortening (white, if 4th of July). Sugar sprinkles (blue, if 4th of July).",
+#   instructions: "Strain juice from cherries and soak in liquor - soak for several days, but 2 days will suffice. Drain cherries and dry them off with a paper towel (so they stick to the chocolate better). If using sugar sprinkles, roll a little in the sprinkles, then set the cherries on a baking sheet lined with max paper. You can also dip in one chocolate (semi or dark) then drizzle with white, or vice versa.",
+#   author_id: 1,
+#   image_url: "https://user-images.githubusercontent.com/93049794/201749031-d124810f-2187-492e-83d8-0455dfc32284.jpg",
+#   category_id: 4
+# )
 
-Recipe.create(
-  title: "Piroshki (Dough meat filled)",
-  ingredients: "1.5 lbs ground beef. 1 can Cambell's chicken and rice soup. 2 hard boiled eggs. 1 medium white inion. 1 roll Pilsbury Southern buttered biscuits.",
-  instructions: "Cook the ground beef. Pour off the fat. To the meat add the onion finely chopped. Saute beef 5 minutes more. Allow meat to cool. Add the chopped eggs. Open the Pilsbury dough. Take apart the biscuits. Split each biscuit in half. To the meat add the chicken soup. Drain the liquid from soup first. Mix well. From the liquid of the soup, add 4 Tbps to the meat mixture. Roll and flatten each dough circle. Put one tablespoon of meat onto the biscuit. Fold biscuit in half and pinch closed with flour. Should look like a half moon. Place the meat filled dough onto a lightly greased cookies sheet. Brush each piroshki with egg yolk. Heat oven to 350 degrees for approximately 25-30 minutes.",
-  author_id: 3,
-  image_url: "https://user-images.githubusercontent.com/93049794/201761871-25814c27-1dc4-4845-b3e6-f08efbea54b1.jpg",
-  category_id: 2
-)
+# Recipe.create(
+#   title: "Piroshki (Dough meat filled)",
+#   ingredients: "1.5 lbs ground beef. 1 can Cambell's chicken and rice soup. 2 hard boiled eggs. 1 medium white inion. 1 roll Pilsbury Southern buttered biscuits.",
+#   instructions: "Cook the ground beef. Pour off the fat. To the meat add the onion finely chopped. Saute beef 5 minutes more. Allow meat to cool. Add the chopped eggs. Open the Pilsbury dough. Take apart the biscuits. Split each biscuit in half. To the meat add the chicken soup. Drain the liquid from soup first. Mix well. From the liquid of the soup, add 4 Tbps to the meat mixture. Roll and flatten each dough circle. Put one tablespoon of meat onto the biscuit. Fold biscuit in half and pinch closed with flour. Should look like a half moon. Place the meat filled dough onto a lightly greased cookies sheet. Brush each piroshki with egg yolk. Heat oven to 350 degrees for approximately 25-30 minutes.",
+#   author_id: 3,
+#   image_url: "https://user-images.githubusercontent.com/93049794/201761871-25814c27-1dc4-4845-b3e6-f08efbea54b1.jpg",
+#   category_id: 2
+# )
 
 
 Comment.create(
