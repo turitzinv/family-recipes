@@ -88,17 +88,16 @@ const EditRecipe = ({ errorRender, setErrors }) => {
 
   return (
     <div>
-      <form onSubmit={handleRecipeUpdateSubmit} id="edit-form">
-        <h3 className="edit-h3">Title</h3>
-        <input class="form-control" id="exampleFormControlInput1"
+      <form onSubmit={handleRecipeUpdateSubmit} className="recipe-form">
+        <h3 className="recipe-form-h3">Title</h3>
+        <input className="form-control" id="exampleFormControlInput1"
           text="text"
           name="title"
           placeholder="Title"
           defaultValue={recipe.title}
           onChange={handleInputChange}
         />
-        <h3 className="edit-h3">Ingredients</h3>
-        <div class="mb-3"></div>
+        <h3 className="recipe-form-h3">Ingredients</h3>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
           text="text"
           name="ingredients"
@@ -107,7 +106,7 @@ const EditRecipe = ({ errorRender, setErrors }) => {
           onChange={handleInputChange}
         />
         <div/>
-        <h3 className="edit-h3">Instructions</h3>
+        <h3 className="recipe-form-h3">Instructions</h3>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
           text="text"
           name="instructions"
@@ -115,8 +114,9 @@ const EditRecipe = ({ errorRender, setErrors }) => {
           defaultValue={recipe.instructions}
           onChange={handleInputChange}
         />
-        <h3 className="edit-h3">Choose a Photo </h3>
-        <input id="formFile"
+        <h3 className="recipe-form-h3">Choose a Photo </h3>
+        <input 
+          id="formFile"
           className="form-control"
           type="file"
           name="image_url"
@@ -125,8 +125,9 @@ const EditRecipe = ({ errorRender, setErrors }) => {
           accept="image/*"
           onChange={fileSelectedHandler}
         />
-        <h3 className="edit-h3">Select a Category</h3>
-        <select class="form-select form-select-lg mb-3"
+        <h3 className="recipe-form-h3">Select a Category</h3>
+        <select 
+          class="form-select form-select-lg mb-3"
           onChange={handleSelectChange}
           name="category_id"
           defaultValue="default"

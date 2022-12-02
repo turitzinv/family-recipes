@@ -25,30 +25,19 @@ code {
   text-decoration-line: underline;
 }
 
-.btn{
+.btn {
   background-color:rgb(25, 184, 205);
   color: white;
   font-weight: bolder;
 }
 
-/* #error {
-  color: #ba3939;
-  background: #ffe0e0;
-  border: 1px solid #a33a3a;
-  text-align: center;
-  padding: 10px;
-  margin: 10px;
-  color: #333;
-  border: 1px solid #ccc;
-} */
-
-#edit-form {
+.recipe-form {
   width: 800px;
   position: center;
   padding-left: 20px;
 }
 
-.edit-h3 {
+.recipe-form-h3 {
   text-align: left;
   padding-top: 15px;
   color: rgb(25, 184, 205);
@@ -152,26 +141,6 @@ code {
   line-height: 0.25rem;
   border-top: 1px solid #333;
 }
-
-/* #recipe_preview {
-  max-width: 700px;
-  min-height: 100px;
-  margin-inline: auto;
-  border: 1px solid #000;
-}
-
-#view-recipe {
-  padding: 0.50rem 2rem;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  position:inherit;
-  border-top: black solid 0.1rem;
-  border-bottom: black solid 0.1rem;
-  border-left: black solid 0.1rem;
-  border-right: black solid 0.1rem;
-}
-*/
 
 #recipe-image {
   width: 450px;

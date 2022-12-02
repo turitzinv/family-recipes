@@ -78,34 +78,40 @@ const AddRecipe = ({ errorRender, setErrors }) => {
 
   return (
     <div>
-      <h2>Create your Recipe</h2>
-      <form onSubmit={handleRecipeSubmit}>
-        <input 
+      <form className="recipe-form" onSubmit={handleRecipeSubmit}>
+      <h3 className="recipe-form-h3">Title</h3>
+        <input className="form-control" id="exampleFormControlInput1"
         text="text"
         name="title"
         placeholder="Title"
         onChange={handleInputChange}
         />
-        <input 
+        <h3 className="recipe-form-h3">Ingredients</h3>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" 
         text="text"
         name="ingredients"
         placeholder="Ingredients"
         onChange={handleInputChange}
         />
-        <input 
+        <h3 className="recipe-form-h3">Instructions</h3>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" 
         text="text"
         name="instructions"
         placeholder="Instructions"
         onChange={handleInputChange}
         />
-        <input 
+        <h3 className="recipe-form-h3">Choose a Photo </h3>
+        <input
+        id="formFile"
+        className="form-control"
         type="file"
         name="image_url"
         placeholder="Image Link"
         accept="image/*"
         onChange={fileSelectedHandler}
         />
-        <select onChange={handleSelectChange} name="category_id" defaultValue="default">
+        <h3 className="recipe-form-h3">Select a Category</h3>
+        <select onChange={handleSelectChange} name="category_id" defaultValue="default" class="form-select form-select-lg mb-3">
           <option value="default" disabled>Choose Category</option>
           <option value="1">Breakfast</option>
           <option value="2">Lunch</option>
