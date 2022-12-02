@@ -42,6 +42,16 @@ code {
   border: 1px solid #ccc;
 } */
 
+#edit-form {
+  width: 800px;
+  position: center;
+  padding-left: 20px;
+}
+
+.edit-h3 {
+  text-align: left;
+}
+
 #edit-recipe-button {
   position: absolute;
   margin-top: 10px;

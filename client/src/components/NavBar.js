@@ -3,7 +3,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from './redux/userAction';
 
-const NavBar = ({ /*setUser*/ }) => {
+const NavBar = ( /*setUser*/ ) => {
 
   const user = useSelector(state => state.users.username);
   const dispatch = useDispatch();

@@ -88,29 +88,36 @@ const EditRecipe = ({ errorRender, setErrors }) => {
 
   return (
     <div>
-      <form onSubmit={handleRecipeUpdateSubmit}>
-        <input
+      <form onSubmit={handleRecipeUpdateSubmit} id="edit-form">
+        <h3 className="edit-h3">Title</h3>
+        <input class="form-control" id="exampleFormControlInput1"
           text="text"
           name="title"
           placeholder="Title"
           defaultValue={recipe.title}
           onChange={handleInputChange}
         />
-        <input
+        <h3 className="edit-h3">Ingredients</h3>
+        <div class="mb-3"></div>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
           text="text"
           name="ingredients"
           placeholder="Ingredients"
           defaultValue={recipe.ingredients}
           onChange={handleInputChange}
         />
-        <input
+        <div/>
+        <h3 className="edit-h3">Instructions</h3>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
           text="text"
           name="instructions"
           placeholder="Instructions"
           defaultValue={recipe.instructions}
           onChange={handleInputChange}
         />
-        <input
+        <h3 className="edit-h3">Choose a Photo </h3>
+        <input class="form-control" id="formFile"
+          className="input-group mb-3"
           type="file"
           name="image_url"
           placeholder="Image Link"
@@ -118,6 +125,7 @@ const EditRecipe = ({ errorRender, setErrors }) => {
           accept="image/*"
           onChange={fileSelectedHandler}
         />
+        <h3>Select a Category</h3>
         <select
           onChange={handleSelectChange}
           name="category_id"
@@ -131,12 +139,12 @@ const EditRecipe = ({ errorRender, setErrors }) => {
           <option value="3">Dinner</option>
           <option value="4">Dessert</option>
         </select>
-        <button class="btn btn-primary">Confirm Edit</button>
-        <button class="btn btn-primary" onClick={cancelEditClick}>
+        <button className="btn btn-primary">Confirm Edit</button>
+        <button className="btn btn-primary" onClick={cancelEditClick}>
           Cancel Edit
         </button>
-        {errorRender}
       </form>
+      {errorRender}
     </div>
   );
 };
