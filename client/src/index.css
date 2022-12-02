@@ -50,6 +50,20 @@ code {
 
 .edit-h3 {
   text-align: left;
+  padding-top: 15px;
+  color: rgb(25, 184, 205);
+}
+
+.recipe-card-headers {
+  color: rgb(25, 184, 205);
+}
+
+.recipe-comment-headers {
+  color: rgb(25, 184, 205);
+}
+
+#preview-title {
+  color: rgb(25, 184, 205);
 }
 
 #edit-recipe-button {
@@ -64,6 +78,14 @@ code {
   margin-top: 10px;
   top: 650px;
   right: 330px;
+}
+
+#confirm-edit-button {
+  margin-right: 5px;
+}
+
+#cancel-edit-button {
+  margin-left: 5px;
 }
 
 #ingredients-h3 {
@@ -120,6 +142,7 @@ code {
   box-sizing: border-box;
   max-width: 500px;
   margin: 0 auto 1rem;
+  color: rgb(25, 184, 205);
 }
 
 #categories {

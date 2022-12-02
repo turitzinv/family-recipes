@@ -116,8 +116,8 @@ const EditRecipe = ({ errorRender, setErrors }) => {
           onChange={handleInputChange}
         />
         <h3 className="edit-h3">Choose a Photo </h3>
-        <input class="form-control" id="formFile"
-          className="input-group mb-3"
+        <input id="formFile"
+          className="form-control"
           type="file"
           name="image_url"
           placeholder="Image Link"
@@ -125,8 +125,8 @@ const EditRecipe = ({ errorRender, setErrors }) => {
           accept="image/*"
           onChange={fileSelectedHandler}
         />
-        <h3>Select a Category</h3>
-        <select
+        <h3 className="edit-h3">Select a Category</h3>
+        <select class="form-select form-select-lg mb-3"
           onChange={handleSelectChange}
           name="category_id"
           defaultValue="default"
@@ -139,8 +139,8 @@ const EditRecipe = ({ errorRender, setErrors }) => {
           <option value="3">Dinner</option>
           <option value="4">Dessert</option>
         </select>
-        <button className="btn btn-primary">Confirm Edit</button>
-        <button className="btn btn-primary" onClick={cancelEditClick}>
+        <button id="confirm-edit-button" className="btn btn-primary">Confirm Edit</button>
+        <button id="cancel-edit-button" className="btn btn-primary" onClick={cancelEditClick}>
           Cancel Edit
         </button>
       </form>

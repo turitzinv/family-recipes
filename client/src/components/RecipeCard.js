@@ -100,7 +100,7 @@ const RecipeCard = () => {
 
   return (
     <div>
-      <h1>{recipe.title}</h1>
+      <h1 className="recipe-card-headers">{recipe.title}</h1>
       <img id="recipe-image" src={recipe.image_url} alt={recipe.title} />
       {recipe.author_id === currentUserId ? (
         <>
@@ -120,14 +120,14 @@ const RecipeCard = () => {
           </button>
         </>
       ) : null}
-      <h3 id="ingredients-h3">Ingredients</h3>
+      <h3 className="recipe-card-headers" id="ingredients-h3">Ingredients</h3>
       <p>{recipe.ingredients}</p>
-      <h3>Instructions</h3>
+      <h3 className="recipe-card-headers">Instructions</h3>
       <p>{recipe.instructions}</p>
       <button className="btn btn-primary" onClick={backRecipeClick}>
         Back to Recipes
       </button>
-      <h3 id="comments-h3">Comments</h3>
+      <h3 className="recipe-card-headers" id="comments-h3">Comments</h3>
       {currentUserId === undefined ? null : (
         <>
           <button className="btn btn-primary" onClick={addCommentClick}>
@@ -139,8 +139,8 @@ const RecipeCard = () => {
       <table className="table table-striped">
         <thead>
           <tr>
-            <th>Recipe Comments</th>
-            <th>Username</th>
+            <th className="recipe-comment-headers">Recipe Comments</th>
+            <th className="recipe-comment-headers">Username</th>
           </tr>
         </thead>
         <tbody>{recipeComments()}</tbody>

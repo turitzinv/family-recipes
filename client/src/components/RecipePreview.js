@@ -14,7 +14,7 @@ const RecipePreview = ({ title, image, id, /*user*/ }) => {
     <div className="card">
       <img className="card-img-top" src={image} alt={title} />
       <div className="card-body">
-        <h2 className="card-title">{title}</h2>
+        <h2 id="preview-title" className="card-title">{title}</h2>
         {user.isLoggedIn ? (
           <button className="btn btn-primary" onClick={onClick}>
           View Details
