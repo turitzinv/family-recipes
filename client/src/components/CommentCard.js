@@ -33,13 +33,13 @@ const CommentCard = ({ description, comment, currentUserId, handleDeleteComment,
   }
 
   return (
-    <tr class="table-info">
+    <tr className="table-info">
       <td>{description}</td>
       {displayUsers}
       { comment.user_id === currentUserId ? (
         <>
-        <td><button id="edit-comment-button" class="btn btn-primary" onClick={handleEditClick}> Edit </button></td>
-        <td><button id="delete-comment-button" class="btn btn-primary" onClick={handleDeleteClick}> Delete </button></td>
+        <td><button id="edit-comment-button" className="btn btn-primary" onClick={handleEditClick}> Edit </button></td>
+        <td><button id="delete-comment-button" className="btn btn-primary" onClick={handleDeleteClick}> Delete </button></td>
         </>
       ): (
         null

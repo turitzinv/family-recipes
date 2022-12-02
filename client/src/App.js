@@ -26,9 +26,7 @@ function App() {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
-  const [recipes, setRecipes] = useState({})
-
-  console.log(recipes)
+  //const [recipes, setRecipes] = useState({})
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -156,7 +154,10 @@ function App() {
           <EditComment />
         </Route>
         <Route path="/editrecipe/:id">
-          <EditRecipe />
+          <EditRecipe
+            errorRender = {errorRender()}
+            setErrors = {setErrors}
+           />
         </Route>
       </Switch>
     </div>

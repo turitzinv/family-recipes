@@ -11,12 +11,12 @@ const RecipePreview = ({ title, image, id, /*user*/ }) => {
   }
 
   return (
-    <div class="card">
-      <img class="card-img-top" src={image} alt={title} />
-      <div class="card-body">
-        <h2 class="card-title">{title}</h2>
+    <div className="card">
+      <img className="card-img-top" src={image} alt={title} />
+      <div className="card-body">
+        <h2 className="card-title">{title}</h2>
         {user.isLoggedIn ? (
-          <button class="btn btn-primary" onClick={onClick}>
+          <button className="btn btn-primary" onClick={onClick}>
           View Details
         </button>
         ): (

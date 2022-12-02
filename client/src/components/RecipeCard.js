@@ -9,13 +9,22 @@ const RecipeCard = () => {
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState([]);
   const [users, setUsers] = useState([]);
-  
+
   const { id } = useParams();
 
   let history = useHistory();
 
-  const currentUser = useSelector(state => state.users)
-  const currentUserId = currentUser.user.id
+  // const allRecipes = useSelector(state => state.recipes)
+  // const recipe = allRecipes.filter((recipe) => {
+  //   return recipe.id === parseInt(id)
+  // })
+  const currentUser = useSelector((state) => state.users);
+  const currentUserId = currentUser.user.id;
+
+  // console.log(id, "this is id")
+  // console.log(recipe, "this is recipe")
+  // console.log(recipe[0].id, "this is recipe[0].id")
+  //console.log(testRecipe, "this is testRecipe")
 
   useEffect(() => {
     fetch(`/recipes/${id}`)
@@ -76,14 +85,13 @@ const RecipeCard = () => {
   }
 
   function handleDeleteClick() {
-    fetch(`/recipes/${recipe.id}`, {
+    fetch(`/recipes/${recipe[0].id}`, {
       method: "DELETE",
-    })
-      .then((resp) => {
-        if (resp.ok) {
-          history.push("/categories");
-        }
-      })
+    }).then((resp) => {
+      if (resp.ok) {
+        history.push("/categories");
+      }
+    });
   }
 
   function backRecipeClick() {
@@ -96,10 +104,18 @@ const RecipeCard = () => {
       <img id="recipe-image" src={recipe.image_url} alt={recipe.title} />
       {recipe.author_id === currentUserId ? (
         <>
-          <button id="edit-recipe-button" className = "btn btn-primary" onClick={handleEditRecipeClick}>
+          <button
+            id="edit-recipe-button"
+            className="btn btn-primary"
+            onClick={handleEditRecipeClick}
+          >
             Edit Recipe
           </button>
-          <button id="delete-recipe-button" className = "btn btn-primary" onClick={handleDeleteClick}>
+          <button
+            id="delete-recipe-button"
+            className="btn btn-primary"
+            onClick={handleDeleteClick}
+          >
             Delete Recipe
           </button>
         </>
@@ -108,23 +124,25 @@ const RecipeCard = () => {
       <p>{recipe.ingredients}</p>
       <h3>Instructions</h3>
       <p>{recipe.instructions}</p>
-      <button class="btn btn-primary" onClick={backRecipeClick}>
+      <button className="btn btn-primary" onClick={backRecipeClick}>
         Back to Recipes
       </button>
       <h3 id="comments-h3">Comments</h3>
       {currentUserId === undefined ? null : (
         <>
-          <button class="btn btn-primary" onClick={addCommentClick}>
+          <button className="btn btn-primary" onClick={addCommentClick}>
             Add Comment
           </button>
           {commentInput}
         </>
       )}
-      <table class="table table-striped">
-        <tr>
-          <th>Recipe Comments</th>
-          <th>Username</th>
-        </tr>
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th>Recipe Comments</th>
+            <th>Username</th>
+          </tr>
+        </thead>
         <tbody>{recipeComments()}</tbody>
       </table>
     </div>
