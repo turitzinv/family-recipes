@@ -12,6 +12,37 @@ code {
     monospace;
 }
 
+/* body {
+  background
+} */
+
+#home-header-summary {
+  /* color: rgb(25, 184, 205); */
+  width: 600px;
+  margin-left: 150px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* #home-header-signin{
+  color: rgb(25, 184, 205);
+} */
+
+.list-group{
+  width: 600px;
+  margin-left: 150px;
+}
+
+/* .list-group-item{
+  color: rgb(25, 184, 205);
+} */
+
+#features-include-header{
+  /* color: rgb(25, 184, 205); */
+  width: 460px;
+  margin-top: 30px;
+}
+
 #family_recipes_header {
   text-align: center;
   background-color:rgb(25, 184, 205);

@@ -92,7 +92,6 @@ function App() {
   // }
   function errorRender() {
     if (errors instanceof Array) {
-      console.log(errors)
       return errors.map((error) => 
       <Error key = {error} error = {error} />);
     } else {
@@ -100,7 +99,7 @@ function App() {
     }
   }
 
-  console.log(errors)
+  //console.log(errors)
 
   // ifUser()
 
