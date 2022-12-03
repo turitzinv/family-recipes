@@ -36,10 +36,10 @@ const Login = ({ /*setUser*/ username, setUsername, password, setPassword, /*set
   }
 
   return (
-    <div>
-      <h2>Please Login or Create an Account</h2>
+    <div >
+      <h2 className="login-signup-headers">Please Login or Create an Account</h2>
       <form onSubmit = {handleLogin}>
-        <input
+        <input 
         type="text"
         placeholder="Username"
         value={username}
@@ -51,7 +51,7 @@ const Login = ({ /*setUser*/ username, setUsername, password, setPassword, /*set
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Log in</button>
+        <button type="submit" className="btn btn-primary">Log in</button>
         {errorRender()}
         <a href="/signup">Create an Account</a>
       </form>

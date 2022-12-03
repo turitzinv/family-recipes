@@ -55,6 +55,14 @@ code {
   color: rgb(25, 184, 205);
 }
 
+.login-signup-headers {
+  color: rgb(25, 184, 205);
+}
+
+#error{
+  color:rgb(206, 30, 30);
+}
+
 #edit-recipe-button {
   position: absolute;
   margin-top: 10px;

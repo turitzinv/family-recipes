@@ -71,7 +71,7 @@ const AddRecipe = ({ errorRender, setErrors }) => {
         //   category_id: "default"
         // })
       } else {
-        resp.json().then((err) => setErrors(err.errors))
+        resp.json().then((err) => alert(err.errors))
       }
     }))
   }
@@ -87,14 +87,14 @@ const AddRecipe = ({ errorRender, setErrors }) => {
         onChange={handleInputChange}
         />
         <h3 className="recipe-form-h3">Ingredients</h3>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" 
+        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" 
         text="text"
         name="ingredients"
         placeholder="Ingredients"
         onChange={handleInputChange}
         />
         <h3 className="recipe-form-h3">Instructions</h3>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" 
+        <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" 
         text="text"
         name="instructions"
         placeholder="Instructions"
@@ -111,16 +111,16 @@ const AddRecipe = ({ errorRender, setErrors }) => {
         onChange={fileSelectedHandler}
         />
         <h3 className="recipe-form-h3">Select a Category</h3>
-        <select onChange={handleSelectChange} name="category_id" defaultValue="default" class="form-select form-select-lg mb-3">
+        <select onChange={handleSelectChange} name="category_id" defaultValue="default" className="form-select form-select-lg mb-3">
           <option value="default" disabled>Choose Category</option>
           <option value="1">Breakfast</option>
           <option value="2">Lunch</option>
           <option value="3">Dinner</option>
           <option value="4">Dessert</option>
         </select>
-        <button class="btn btn-primary"> Add Recipe</button>
-        {errorRender}
+        <button className="btn btn-primary"> Add Recipe</button>
       </form>
+      {errorRender}
     </div>
   )
 }

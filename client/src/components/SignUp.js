@@ -42,7 +42,7 @@ const SignUp = ({ /*setUser*/ username, setUsername, password, setPassword, /*se
 
   return (
     <div>
-      <h2>Create a new Username and Password</h2>
+      <h2 className="login-signup-headers">Create a new Username and Password</h2>
       <form>
         <input 
         type="text"
@@ -63,7 +63,7 @@ const SignUp = ({ /*setUser*/ username, setUsername, password, setPassword, /*se
         onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
         
-        <button onClick = {handleSignUp}>Create Account</button>
+        <button className="btn btn-primary" onClick = {handleSignUp}>Create Account</button>
         {errorRender()}
       </form>
     </div>

@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
 rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
+rescue_from Exception, with: :record_exception
 ##before_action :authorize
 
   def index
@@ -37,6 +38,10 @@ rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
   def record_invalid(invalid)
     render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+  end
+
+  def record_exception
+    render json: { errors: "Please fill out all fields" }, status: :unprocessable_entity
   end
   
   def authorize

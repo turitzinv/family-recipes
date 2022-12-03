@@ -81,7 +81,7 @@ const EditRecipe = ({ errorRender, setErrors }) => {
       if (resp.ok) {
         history.push(`/recipes/${id}`);
       } else {
-        resp.json().then((err) => setErrors(err.errors));
+        resp.json().then((err) => alert(err.errors));
       }
     }));
   }
@@ -98,7 +98,7 @@ const EditRecipe = ({ errorRender, setErrors }) => {
           onChange={handleInputChange}
         />
         <h3 className="recipe-form-h3">Ingredients</h3>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"
           text="text"
           name="ingredients"
           placeholder="Ingredients"
@@ -107,7 +107,7 @@ const EditRecipe = ({ errorRender, setErrors }) => {
         />
         <div/>
         <h3 className="recipe-form-h3">Instructions</h3>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+        <textarea className="form-control" id="exampleFormControlTextarea1" rows="5"
           text="text"
           name="instructions"
           placeholder="Instructions"
@@ -127,7 +127,7 @@ const EditRecipe = ({ errorRender, setErrors }) => {
         />
         <h3 className="recipe-form-h3">Select a Category</h3>
         <select 
-          class="form-select form-select-lg mb-3"
+          className="form-select form-select-lg mb-3"
           onChange={handleSelectChange}
           name="category_id"
           defaultValue="default"

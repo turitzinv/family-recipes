@@ -41,6 +41,16 @@ const RecipeCard = () => {
       .then((pulledUsers) => setUsers(pulledUsers));
   }, []);
 
+  const loading = async () => {
+    await loadUsers()
+  }
+
+  const loadUsers = async () => {
+    const resp = await fetch("/users")
+    const data = await resp.json()
+    setUsers(data)
+  }
+
   function handleDeleteComment(deletedComment) {
     const updatedComments = comments.filter(
       (comment) => comment.id !== deletedComment.id
@@ -85,7 +95,7 @@ const RecipeCard = () => {
   }
 
   function handleDeleteClick() {
-    fetch(`/recipes/${recipe[0].id}`, {
+    fetch(`/recipes/${recipe.id}`, {
       method: "DELETE",
     }).then((resp) => {
       if (resp.ok) {

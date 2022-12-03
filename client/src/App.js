@@ -90,14 +90,17 @@ function App() {
   //     return null
   //   }
   // }
-
   function errorRender() {
     if (errors instanceof Array) {
-      return errors.map((error) => <Error key = {error} error = {error} />);
+      console.log(errors)
+      return errors.map((error) => 
+      <Error key = {error} error = {error} />);
     } else {
       return null;
     }
   }
+
+  console.log(errors)
 
   // ifUser()
 
