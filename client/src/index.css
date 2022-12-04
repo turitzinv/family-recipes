@@ -17,16 +17,22 @@ code {
 } */
 
 #home-header-summary {
-  /* color: rgb(25, 184, 205); */
-  width: 600px;
+  color: rgb(25, 184, 205);
+  width: 610px;
   margin-left: 150px;
   margin-top: 30px;
   margin-bottom: 30px;
+  font-weight: bolder;
 }
 
-/* #home-header-signin{
+#home-header-signin{
   color: rgb(25, 184, 205);
-} */
+  font-weight: bolder;
+}
+
+#login-to-view-recipe-h3 {
+  color: rgb(25, 184, 205);
+}
 
 .list-group{
   width: 600px;
@@ -36,12 +42,6 @@ code {
 /* .list-group-item{
   color: rgb(25, 184, 205);
 } */
-
-#features-include-header{
-  /* color: rgb(25, 184, 205); */
-  width: 460px;
-  margin-top: 30px;
-}
 
 #family_recipes_header {
   text-align: center;
@@ -73,6 +73,11 @@ code {
 }
 
 #home-position {
+  width: 900px;
+  margin: auto;
+}
+
+#recipe-card {
   width: 900px;
   margin: auto;
 }
@@ -122,16 +127,20 @@ margin-left: 10px;
 
 #edit-recipe-button {
   position: absolute;
-  margin-top: 10px;
-  top: 650px;
-  left: 330px;
+  margin: auto;
+  top: 670px;
+  left: 530px;
+  width: 150px;
+  max-width: 900px;
 }
 
 #delete-recipe-button {
   position: absolute;
-  margin-top: 10px;
-  top: 650px;
-  right: 330px;
+  margin: auto;
+  top: 670px;
+  right: 510px;
+  width: 150px;
+  max-width: 900px;
 }
 
 #confirm-edit-button {
