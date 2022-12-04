@@ -62,6 +62,27 @@ code {
   font-weight: bolder;
 }
 
+#add-recipe-fixed {
+ width: 800px;
+ margin: 0 auto 1rem;
+}
+
+#home-position {
+  width: 800px;
+  margin: 0 auto 1rem;
+}
+
+#middle-image-home{
+margin-right: 10px;
+margin-left: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+
 .recipe-form {
   width: 800px;
   position: center;

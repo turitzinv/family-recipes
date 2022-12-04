@@ -77,7 +77,7 @@ const AddRecipe = ({ errorRender, setErrors }) => {
   }
 
   return (
-    <div>
+    <div id="add-recipe-fixed">
       <form className="recipe-form" onSubmit={handleRecipeSubmit}>
       <h3 className="recipe-form-h3">Title</h3>
         <input className="form-control" id="exampleFormControlInput1"
