@@ -39,19 +39,21 @@ const Login = ({ /*setUser*/ username, setUsername, password, setPassword, /*set
     <div >
       <h2 className="login-signup-headers">Please Login or Create an Account</h2>
       <form onSubmit = {handleLogin}>
-        <input 
+        <input
+        className="login-signup-inputs" 
         type="text"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         />
         <input 
+        className="login-signup-inputs"
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit" className="btn btn-primary">Log in</button>
+        <button id="login-button" type="submit" className="btn btn-primary">Log in</button>
         {errorRender()}
         <a href="/signup">Create an Account</a>
       </form>

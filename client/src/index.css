@@ -16,6 +16,14 @@ code {
   background
 } */
 
+.login-signup-inputs {
+  margin-right: 10px;
+}
+
+#login-button {
+  margin-right: 10px;
+}
+
 #home-header-summary {
   color: rgb(25, 184, 205);
   width: 610px;

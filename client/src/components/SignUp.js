@@ -45,18 +45,21 @@ const SignUp = ({ /*setUser*/ username, setUsername, password, setPassword, /*se
       <h2 className="login-signup-headers">Create a new Username and Password</h2>
       <form>
         <input 
+        className="login-signup-inputs"
         type="text"
         placeholder="New Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         />
         <input 
+        className="login-signup-inputs"
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         />
         <input 
+        className="login-signup-inputs"
         type="password"
         placeholder="Password Confirmation"
         value={passwordConfirmation}
