@@ -110,7 +110,7 @@ const RecipeCard = () => {
 
   return (
     <div id="recipe-card">
-      <h1 className="recipe-card-headers">{recipe.title}</h1>
+      <h1 id="recipe-title" className="recipe-card-headers">{recipe.title}</h1>
       <img id="recipe-image" src={recipe.image_url} alt={recipe.title} />
       {recipe.author_id === currentUserId ? (
         <>
