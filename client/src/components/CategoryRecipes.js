@@ -9,20 +9,13 @@ const CategoryRecipes = (/*user*/) => {
   const user = useSelector((state) => state.users);
   const recipes = useSelector((state => state.recipes))
 
-  const categoryRecipes = recipes.filter((recipe) => {
+  console.log(recipes)
+
+  const categoryRecipes = Array.isArray(recipes) ? recipes.filter((recipe) => {
      return recipe.category_id === parseInt(id)
     }
-  );  
-
-  //refreshing the page gives error...TypeError: recipes.forEach is not a function
-    //const categoryRecipes = []
-//   recipes.forEach((recipe) => {
-//     console.log(recipe.category_id)
-//     if (recipe.category_id === parseInt(id)) {
-//       return categoryRecipes.push(recipe)
-//     }
-//    }
-//  );
+  ) : []; 
+  
 
   //Old useEffect before Redux
   // useEffect(() => {

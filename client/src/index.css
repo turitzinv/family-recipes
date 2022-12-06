@@ -12,11 +12,12 @@ code {
     monospace;
 }
 
-/* body {
-  background
-} */
-
 .login-signup-inputs {
+  margin-right: 10px;
+}
+
+.card {
+  width: 18rem;
   margin-right: 10px;
 }
 

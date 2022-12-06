@@ -11,10 +11,10 @@ const Home = () => {
         fun family meals!
       </h3>
       <h4 id="home-header-signin">User must be signed in to view and create recipes</h4>
-        <div class="grid">
-          <img src={DessertImage} className="rounded" height="300" width="300"/>
-          <img id="middle-image-home" className="rounded" src={Piroshki} height="300" width="300"/>
-          <img src={LemonCakeImage} className="rounded" height="300" width="300"/>
+        <div className="grid">
+          <img src={DessertImage} className="rounded" height="300" width="300" alt="DessertImage"/>
+          <img src={Piroshki} id="middle-image-home" className="rounded" height="300" width="300" alt="Piroshki"/>
+          <img src={LemonCakeImage} className="rounded" height="300" width="300" alt="LemonCakeImage"/>
         </div>
     </div>
   );

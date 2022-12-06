@@ -19,7 +19,7 @@ const RecipePreview = ({ title, image, id, /*user*/ }) => {
           <button className="btn btn-primary" onClick={onClick}>
           View Details
         </button>
-        ): (
+        ) : (
           null
         )}
       </div>
