@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import CommentCard from "./CommentCard";
 import AddComment from "./AddComment";
 import { useSelector } from "react-redux";
+import DeleteConfirmation from "./DeleteConfirmation";
 
 const RecipeCard = () => {
   const [recipe, setRecipe] = useState({});
@@ -100,6 +101,7 @@ const RecipeCard = () => {
     }).then((resp) => {
       if (resp.ok) {
         history.push("/categories");
+        window.location.reload()
       }
     });
   }
@@ -121,13 +123,7 @@ const RecipeCard = () => {
           >
             Edit Recipe
           </button>
-          <button
-            id="delete-recipe-button"
-            className="btn btn-primary"
-            onClick={handleDeleteClick}
-          >
-            Delete Recipe
-          </button>
+            <DeleteConfirmation handleDeleteClick={handleDeleteClick} />
         </>
       ) : null}
       <h3 className="recipe-card-headers" id="ingredients-h3">Ingredients</h3>
