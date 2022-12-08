@@ -21,10 +21,6 @@ const RecipeCard = ( ) => {
   const currentUser = useSelector((state) => state.users);
   const currentUserId = currentUser.user.id
 
-  console.log(currentUser, "this is currentUser")
-  console.log(currentUserId, "this is currentUserId")
-
-
   useEffect(() => {
     fetch(`/recipes/${id}`)
       .then((resp) => resp.json())

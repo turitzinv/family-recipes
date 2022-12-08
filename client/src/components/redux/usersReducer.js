@@ -20,7 +20,7 @@ const usersReducer = (state = initialState, action) => {
 
     case "SIGNUP":
       return {
-        user: action.payload,
+        user: action.payload.user,
         username: action.payload.username,
         password: action.payload.password,
         password_confirmation: action.payload.password_confirmation,
