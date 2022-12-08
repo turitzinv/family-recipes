@@ -21,6 +21,9 @@ const RecipeCard = ( ) => {
   const currentUser = useSelector((state) => state.users);
   const currentUserId = currentUser.user.id
 
+  console.log(currentUser, "this is currentUser")
+  console.log(currentUserId, "this is currentUserId")
+
 
   useEffect(() => {
     fetch(`/recipes/${id}`)
@@ -36,16 +39,6 @@ const RecipeCard = ( ) => {
       .then((resp) => resp.json())
       .then((pulledUsers) => setUsers(pulledUsers));
   }, []);
-
-  // const loading = async () => {
-  //   await loadUsers()
-  // }
-
-  // const loadUsers = async () => {
-  //   const resp = await fetch("/users")
-  //   const data = await resp.json()
-  //   setUsers(data)
-  // }
 
   function handleDeleteComment(deletedComment) {
     const updatedComments = comments.filter(
@@ -129,14 +122,10 @@ const RecipeCard = ( ) => {
         Back to Recipes
       </button>
       <h3 className="recipe-card-headers" id="comments-h3">Comments</h3>
-      {currentUserId === undefined ? null : (
-        <>
           <button className="btn btn-primary" onClick={addCommentClick}>
             Add Comment
           </button>
           {commentInput}
-        </>
-      )}
       <table className="table table-striped">
         <thead>
           <tr>
