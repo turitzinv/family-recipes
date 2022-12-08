@@ -7,10 +7,12 @@ const initialState = {
 }
 
 const usersReducer = (state = initialState, action) => {
+  //console.log(action.payload, "payload")
+  //console.log(action.payload.username, "payload.username")
   switch (action.type) {
     case "LOGIN":
       return { 
-        user: action.payload,
+        user: action.payload.user,
         username: action.payload.username,
         password: action.payload.password,
         isLoggedIn: true

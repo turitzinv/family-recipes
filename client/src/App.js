@@ -31,7 +31,7 @@ function App() {
   const dispatch = useDispatch();
   const history = useHistory();
   const requesting = useSelector(state => state.requesting);
-  //const user = useSelector(state => state.users.user.user)
+
 
   function handleLogin(event) {
     event.preventDefault();
@@ -75,7 +75,7 @@ function App() {
 
   useEffect(() => {
     dispatch(allRecipes())
-  })
+  }, [])
 
   if(requesting) {
     return <h1>Loading...</h1>
@@ -135,7 +135,8 @@ function App() {
           setErrors = {setErrors}
           />
         </Route>
-        <Route path="/recipes/:id">
+        <Route 
+        path="/recipes/:id">
           <RecipeCard />
         </Route>
         <Route path="/signup">

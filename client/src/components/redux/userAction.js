@@ -16,6 +16,8 @@ export const login = (details, history) => {
       username: data.username,
       password: data.password,
     };
+    console.log(data, "data within login")
+    console.log(payload, "payload within login")
     if (data.errors) {
       dispatch({ type: "ERRORS", payload: data.errors });
     } else {
@@ -68,9 +70,15 @@ export const currentUser = () => {
     });
     const data = await resp.json();
     //console.log(data.username)
+    const payload = {
+      user: data,
+      username: data.username,
+      password: data.password,
+    };
+    console.log(data, "data within currentUser")
 
     if (data.username) {
-      dispatch({ type: "LOGIN", payload: data });
+      dispatch({ type: "LOGIN", payload });
     }
     dispatch({ type: "DONE_REQUESTING" });
   };

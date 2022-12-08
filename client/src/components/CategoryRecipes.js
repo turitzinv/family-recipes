@@ -9,8 +9,6 @@ const CategoryRecipes = (/*user*/) => {
   const user = useSelector((state) => state.users);
   const recipes = useSelector((state => state.recipes))
 
-  console.log(recipes)
-
   const categoryRecipes = Array.isArray(recipes) ? recipes.filter((recipe) => {
      return recipe.category_id === parseInt(id)
     }

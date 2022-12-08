@@ -5,12 +5,11 @@ import AddComment from "./AddComment";
 import { useSelector } from "react-redux";
 import DeleteConfirmation from "./DeleteConfirmation";
 
-const RecipeCard = () => {
+const RecipeCard = ( ) => {
   const [recipe, setRecipe] = useState({});
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState([]);
   const [users, setUsers] = useState([]);
-
   const { id } = useParams();
 
   let history = useHistory();
@@ -20,12 +19,8 @@ const RecipeCard = () => {
   //   return recipe.id === parseInt(id)
   // })
   const currentUser = useSelector((state) => state.users);
-  const currentUserId = currentUser.user.id;
+  const currentUserId = currentUser.user.id
 
-  // console.log(id, "this is id")
-  // console.log(recipe, "this is recipe")
-  // console.log(recipe[0].id, "this is recipe[0].id")
-  //console.log(testRecipe, "this is testRecipe")
 
   useEffect(() => {
     fetch(`/recipes/${id}`)
