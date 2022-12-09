@@ -14,10 +14,6 @@ const RecipeCard = ( ) => {
 
   let history = useHistory();
 
-  // const allRecipes = useSelector(state => state.recipes)
-  // const recipe = allRecipes.filter((recipe) => {
-  //   return recipe.id === parseInt(id)
-  // })
   const currentUser = useSelector((state) => state.users);
   const currentUserId = currentUser.user.id
 

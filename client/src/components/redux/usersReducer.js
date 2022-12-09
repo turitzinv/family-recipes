@@ -1,5 +1,5 @@
 const initialState = {
-  user: {}, //originally null
+  user: {}, 
   username: "",
   password: "",
   password_confirmation: "",
@@ -7,8 +7,6 @@ const initialState = {
 }
 
 const usersReducer = (state = initialState, action) => {
-  //console.log(action.payload, "payload")
-  //console.log(action.payload.username, "payload.username")
   switch (action.type) {
     case "LOGIN":
       return { 

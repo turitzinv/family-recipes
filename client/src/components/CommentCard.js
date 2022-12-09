@@ -7,8 +7,6 @@ const CommentCard = ({ description, comment, currentUserId, handleDeleteComment,
 
   let userCommented = [];
 
-  console.log(currentUserId)
-
     users.forEach((user) => {
     if(user.id === comment.user_id) {
       userCommented.push(user.username)
