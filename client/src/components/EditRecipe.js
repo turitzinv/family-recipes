@@ -33,13 +33,6 @@ const EditRecipe = ({ errorRender, setErrors }) => {
     });
   }
 
-  // let categoryArray = ["Breakfast", "Lunch", "Dinner", "Dessert"]
-
-  // const categoryList = categoryArray.map((category,index) => {
-  //  <option key={index}>{category}</option>
-  //   console.log(index, "this is index")
-  // })
-
   function fileSelectedHandler(event) {
     setRecipe({
       ...recipe,
@@ -67,16 +60,7 @@ const EditRecipe = ({ errorRender, setErrors }) => {
 
     fetch(`/recipes/${id}`, {
       method: "PATCH",
-      // headers: {
-      //   "Content-Type": "application/json",
-      // },
       body: sendFormData,
-      // JSON.stringify({
-      //   title: newRecipe.title,
-      //   ingredients: newRecipe.ingredients,
-      //   instructions: newRecipe.instructions,
-      //   category_id: newRecipe.category_id
-      // }),
     }).then((resp => {
       if (resp.ok) {
         history.push(`/recipes/${id}`);

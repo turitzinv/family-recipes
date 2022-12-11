@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-const AddRecipe = ({ errorRender, setErrors }) => {
+const AddRecipe = ({ errorRender }) => {
   const [formData, setFormData] = useState({
     title: "",
     ingredients: "",
@@ -47,29 +47,11 @@ const AddRecipe = ({ errorRender, setErrors }) => {
 
     fetch("/recipes", {
       method: "POST",
-      // headers: {
-      //   "Content-Type": "application/json"
-      // },
       body: sendFormData,
-      // JSON.stringify({
-      //   title: formData.title,
-      //   ingredients: formData.ingredients,
-      //   instructions: formData.instructions,
-      //   image_url: formData.image_url,
-      //   category_id: formData.category_id,
-      //   author_id: currentUserId
-      // }),
     }).then((resp => {
       if (resp.ok) {
         alert("Recipe Added!")
         window.location.reload()
-        // setFormData({
-        //   title: "",
-        //   ingredients: "",
-        //   instructions: "",
-        //   image_url: null,
-        //   category_id: "default"
-        // })
       } else {
         resp.json().then((err) => alert(err.errors))
       }

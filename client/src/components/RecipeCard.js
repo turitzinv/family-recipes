@@ -5,7 +5,7 @@ import AddComment from "./AddComment";
 import { useSelector } from "react-redux";
 import DeleteConfirmation from "./DeleteConfirmation";
 
-const RecipeCard = ( ) => {
+const RecipeCard = () => {
   const [recipe, setRecipe] = useState({});
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState([]);

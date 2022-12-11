@@ -21,12 +21,10 @@ import { allRecipes } from './components/redux/recipesAction';
 
 
 function App() {
-  //const [user, setUser] = useState(null)
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
-  //const [recipes, setRecipes] = useState({})
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -54,21 +52,6 @@ function App() {
       history))
   }
 
-  // useEffect(() => {
-  //   fetch("/me")
-  //   .then((resp) => {
-  //     if (resp.ok) {
-  //       resp.json().then((user) => setUser(user));
-  //     }
-  //   })
-  // }, []);
-
-  // useEffect(() => {
-  //   fetch("/recipes/1")
-  //   .then((resp) => resp.json())
-  //   .then((preview) => setRecipePreview(preview))
-  // }, [])
-
   useEffect(() => {
     dispatch(currentUser())
   }, []);
@@ -81,15 +64,6 @@ function App() {
     return <h1>Loading...</h1>
   }
 
-  // let currentUserId
-
-  // function ifUser() {
-  //   if (user instanceof Object) {
-  //     return  currentUserId = user.id
-  //   } else {
-  //     return null
-  //   }
-  // }
   function errorRender() {
     if (errors instanceof Array) {
       return errors.map((error) => 
@@ -99,14 +73,10 @@ function App() {
     }
   }
 
-  //console.log(errors)
-
-  // ifUser()
-
   return (
     <div className="App">
       <h1 id="family_recipes_header">Family Recipes 🍽️</h1>
-      <NavBar /*setUser = {setUser} user = {user}*/ />
+      <NavBar />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -116,18 +86,16 @@ function App() {
         </Route>
         <Route path="/login" >
           <Login 
-          /*setUser = {setUser}*/
           username = {username}
           setUsername = {setUsername}
           password = {password}
           setPassword = {setPassword}
           setErrors = {setErrors}
-          // errorRender = {errorRender()}
           handleLogin = {handleLogin}
           />
         </Route>
         <Route path="/categories/:id">
-          <CategoryRecipes /*user = {user}*/ />
+          <CategoryRecipes />
         </Route>
         <Route path="/recipe_create">
           <AddRecipe
@@ -141,13 +109,10 @@ function App() {
         </Route>
         <Route path="/signup">
           <SignUp 
-          // setUser = {setUser}
           username = {username}
           setUsername = {setUsername}
           password = {password}
           setPassword = {setPassword}
-          // setErrors = {setErrors}
-          // errorRender = {errorRender()}
           handleSignUp= {handleSignUp}
           passwordConfirmation = {passwordConfirmation}
           setPasswordConfirmation = {setPasswordConfirmation}

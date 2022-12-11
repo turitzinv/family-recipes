@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const RecipePreview = ({ title, image, id, /*user*/ }) => {
+const RecipePreview = ({ title, image, id }) => {
   let history = useHistory();
   const user = useSelector(state => state.users)
 

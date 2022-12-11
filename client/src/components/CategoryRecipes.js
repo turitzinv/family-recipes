@@ -3,9 +3,8 @@ import { useParams } from "react-router-dom";
 import RecipePreview from "./RecipePreview";
 import { useSelector } from "react-redux";
 
-const CategoryRecipes = (/*user*/) => {
+const CategoryRecipes = () => {
   const { id } = useParams();
-  //const [allRecipes, setAllRecipes] = useState([]);
   const user = useSelector((state) => state.users);
   const recipes = useSelector((state => state.recipes))
 
@@ -13,14 +12,6 @@ const CategoryRecipes = (/*user*/) => {
      return recipe.category_id === parseInt(id)
     }
   ) : []; 
-  
-
-  //Old useEffect before Redux
-  // useEffect(() => {
-  //   fetch(`/categories/${id}`)
-  //     .then((resp) => resp.json())
-  //     .then((categoryRecipes) => setAllRecipes(categoryRecipes.recipes));
-  // }, [id]);
 
   function recipeRender() {
     if (categoryRecipes instanceof Array) {
@@ -30,7 +21,6 @@ const CategoryRecipes = (/*user*/) => {
           id={recipe.id}
           title={recipe.title}
           image={recipe.image_url}
-          // user={user}
         />
       ));
     } else {
