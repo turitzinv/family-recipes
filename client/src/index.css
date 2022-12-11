@@ -89,6 +89,7 @@ code {
 #recipe-card {
   width: 900px;
   margin: auto;
+  position: relative;
 }
 
 #middle-image-home{
@@ -136,22 +137,28 @@ margin-left: 10px;
 
 #edit-recipe-button {
   position: absolute;
-  margin: auto;
-  top: 670px;
-  left: 530px;
+  margin: 0 auto 1rem;
+  top: 540px;
+  right: 460px;
   width: 150px;
-  max-width: 900px;
+  margin-right: 10px;
 }
 
 #delete-recipe-button {
   position: absolute;
-  margin: auto;
-  top: 670px;
-  right: 510px;
+  margin: 0 auto 1rem;
+  top: 540px;
+  left: 460px;
   width: 150px;
-  max-width: 900px;
   background-color: rgb(226, 91, 91);
 }
+
+#recipe-image {
+  width: 450px;
+  height: 500px;
+  text-align: center;
+  padding: 25px;
+} 
 
 #confirm-edit-button {
   margin-right: 5px;
@@ -226,9 +233,4 @@ margin-left: 10px;
   border-top: 1px solid #333;
 }
 
-#recipe-image {
-  width: 450px;
-  height: 500px;
-  text-align: center;
-  padding: 25px;
-} 
+
