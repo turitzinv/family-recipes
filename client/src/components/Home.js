@@ -1,7 +1,7 @@
 import React from "react";
-import DessertImage from "/Users/victorturitzin/family-recipes/client/src/Images/IMG-5839.jpg"
-import LemonCakeImage from "/Users/victorturitzin/family-recipes/client/src/Images/lemon_cake.jpeg"
-import Piroshki from "/Users/victorturitzin/family-recipes/client/src/Images/IMG-5266.jpg"
+import DessertImage from "../Images/IMG-5839.jpg"
+import LemonCakeImage from "../Images/lemon_cake.jpeg"
+import Piroshki from "../Images/IMG-5266.jpg"
 
 const Home = () => {
   return (
