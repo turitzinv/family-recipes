@@ -202,18 +202,22 @@ margin-left: 10px;
 
 #add-comment {
   margin-right: 10px;
+  width: 100px;
 }
 
 #close-comment {
   margin-left: 10px;
+  width: 100px;
 }
 
 #edit-comment-button {
   position: static;
+  width: 80px;
 }
 
 #delete-comment-button {
   position: static;
+  width: 80px;
 }
 
 #all_categories {

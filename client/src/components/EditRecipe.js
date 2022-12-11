@@ -11,6 +11,8 @@ const EditRecipe = ({ errorRender, setErrors }) => {
   //   category_id: recipe.category_id
   // })
 
+  console.log(recipe.image_url)
+
   const { id } = useParams();
 
   let history = useHistory();
@@ -45,8 +47,6 @@ const EditRecipe = ({ errorRender, setErrors }) => {
       .then((resp) => resp.json())
       .then((recipe) => setRecipe(recipe));
   }, [id]);
-
-
 
   function handleRecipeUpdateSubmit(e) {
     e.preventDefault();
@@ -104,7 +104,6 @@ const EditRecipe = ({ errorRender, setErrors }) => {
           className="form-control"
           type="file"
           name="image_url"
-          placeholder="Image Link"
           // value={recipe.image_url}
           accept="image/*"
           onChange={fileSelectedHandler}
@@ -115,6 +114,7 @@ const EditRecipe = ({ errorRender, setErrors }) => {
           onChange={handleSelectChange}
           name="category_id"
           defaultValue="default"
+          value={recipe.category_id}
         >
           <option value="default" disabled>
             Choose Category
