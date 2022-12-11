@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
 rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 rescue_from Exception, with: :record_exception
 before_action :authorize
+skip_before_action :authorize, only: [:index]
 
   def index
     recipes = Recipe.all
