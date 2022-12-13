@@ -1,18 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
-const EditRecipe = ({ errorRender, setErrors }) => {
-  const [recipe, setRecipe] = useState({}); //set default value to empty strings
-  // const [newRecipe, setNewRecipe] = useState({
-  //   title: recipe.title,
-  //   ingredients: recipe.ingredients,
-  //   instructions: recipe.instructions,
-  //   image_url: recipe.image_url,
-  //   category_id: recipe.category_id
-  // })
-
-  console.log(recipe.image_url)
-
+const EditRecipe = ({ errorRender /*setErrors*/ }) => {
+  const [recipe, setRecipe] = useState({});
   const { id } = useParams();
 
   let history = useHistory();

@@ -212,13 +212,14 @@ margin-left: 10px;
 }
 
 #edit-comment-button {
-  position: static;
-  width: 80px;
+  position: relative;
+  width: 100px;
+  left: 80px;
 }
 
 #delete-comment-button {
   position: static;
-  width: 80px;
+  width: 100px;
 }
 
 #all_categories {
