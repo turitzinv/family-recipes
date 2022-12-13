@@ -18,6 +18,7 @@ import { useHistory } from 'react-router-dom';
 import { currentUser } from './components/redux/userAction';
 import { signup } from './components/redux/userAction';
 import { allRecipes } from './components/redux/recipesAction';
+import EditRecipePhoto from './components/EditRecipePhoto';
 
 
 function App() {
@@ -127,6 +128,9 @@ function App() {
             setErrors = {setErrors}
            />
         </Route>
+        <Route path="/editrecipephoto/:id">
+            <EditRecipePhoto errorRender = {errorRender()} />
+           </Route>
       </Switch>
     </div>
   );

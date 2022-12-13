@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from 'react-router-dom';
 
-const EditRecipe = ({ errorRender /*setErrors*/ }) => {
+const EditRecipe = ({ errorRender, setErrors }) => {
   const [recipe, setRecipe] = useState({});
   const { id } = useParams();
 
@@ -25,37 +25,51 @@ const EditRecipe = ({ errorRender /*setErrors*/ }) => {
     });
   }
 
-  function fileSelectedHandler(event) {
-    setRecipe({
-      ...recipe,
-      [event.target.name]: event.target.files[0],
-    });
-  }
-
   useEffect(() => {
     fetch(`/recipes/${id}`)
       .then((resp) => resp.json())
       .then((recipe) => setRecipe(recipe));
   }, [id]);
 
+  // function handleRecipeUpdateSubmit(e) {
+  //   e.preventDefault();
+
+  //   const sendFormData = new FormData();
+  //   sendFormData.append("title", recipe.title);
+  //   sendFormData.append("ingredients", recipe.ingredients);
+  //   sendFormData.append("instructions", recipe.instructions);
+  //   sendFormData.append("category_id", recipe.category_id);
+
+  //   fetch(`/recipes/${id}`, {
+  //     method: "PATCH",
+  //     body: sendFormData,
+  //   }).then((resp => {
+  //     if (resp.ok) {
+  //       history.push(`/recipes/${id}`);
+  //     } else {
+  //       resp.json().then((err) => setErrors(err.errors));
+  //     }
+  //   }));
+  // }
+
   function handleRecipeUpdateSubmit(e) {
     e.preventDefault();
-
-    const sendFormData = new FormData();
-    sendFormData.append("title", recipe.title);
-    sendFormData.append("ingredients", recipe.ingredients);
-    sendFormData.append("instructions", recipe.instructions);
-    sendFormData.append("image_url", recipe.image_url);
-    sendFormData.append("category_id", recipe.category_id);
-
     fetch(`/recipes/${id}`, {
       method: "PATCH",
-      body: sendFormData,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: recipe.title,
+        ingredients: recipe.ingredients,
+        instructions: recipe.instructions,
+        category_id: recipe.category_id
+      }),
     }).then((resp => {
       if (resp.ok) {
         history.push(`/recipes/${id}`);
       } else {
-        resp.json().then((err) => alert(err.errors));
+        resp.json().then((err) => setErrors(err.errors));
       }
     }));
   }
@@ -87,16 +101,6 @@ const EditRecipe = ({ errorRender /*setErrors*/ }) => {
           placeholder="Instructions"
           defaultValue={recipe.instructions}
           onChange={handleInputChange}
-        />
-        <h3 className="recipe-form-h3">Choose a Photo </h3>
-        <input 
-          id="formFile"
-          className="form-control"
-          type="file"
-          name="image_url"
-          // value={recipe.image_url}
-          accept="image/*"
-          onChange={fileSelectedHandler}
         />
         <h3 className="recipe-form-h3">Select a Category</h3>
         <select 

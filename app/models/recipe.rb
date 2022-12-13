@@ -9,6 +9,6 @@ class Recipe < ApplicationRecord
   validates :ingredients, presence: true
   validates :instructions, presence: true
   validates :category_id, presence: true
- # validates :image_url, presence: true
+  validates :image_url, presence: true
 
 end

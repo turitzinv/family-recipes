@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :recipes
   resources :comments
 
-  #double check below recipes
   resources :categories, only: [:index, :show] do
     resources :recipes, only: [:index]
   end

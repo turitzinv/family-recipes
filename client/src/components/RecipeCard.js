@@ -64,6 +64,10 @@ const RecipeCard = () => {
     history.push(`/editrecipe/${recipe.id}`);
   }
 
+  function handleEditRecipePhotoClick() {
+    history.push(`/editrecipephoto/${recipe.id}`);
+  }
+
   function addCommentClick() {
     setCommentInput(
       <AddComment
@@ -101,7 +105,14 @@ const RecipeCard = () => {
             className="btn btn-primary"
             onClick={handleEditRecipeClick}
           >
-            Edit Recipe
+            Edit Details
+          </button>
+          <button
+            id="edit-photo-button"
+            className="btn btn-primary"
+            onClick={handleEditRecipePhotoClick}
+          >
+            Edit Photo
           </button>
             <DeleteConfirmation handleDeleteClick={handleDeleteClick} />
         </>

@@ -140,7 +140,16 @@ margin-left: 10px;
   position: absolute;
   margin: 0 auto 1rem;
   top: 540px;
-  right: 460px;
+  right: 520px;
+  width: 150px;
+  margin-right: 10px;
+}
+
+#edit-photo-button {
+  position: absolute;
+  margin: 0 auto 1rem;
+  top: 540px;
+  right: 360px;
   width: 150px;
   margin-right: 10px;
 }
@@ -149,7 +158,7 @@ margin-left: 10px;
   position: absolute;
   margin: 0 auto 1rem;
   top: 540px;
-  left: 460px;
+  left: 540px;
   width: 150px;
   background-color: rgb(226, 91, 91);
 }
@@ -162,10 +171,12 @@ margin-left: 10px;
 } 
 
 #confirm-edit-button {
+  margin-top: 5px;
   margin-right: 5px;
 }
 
 #cancel-edit-button {
+  margin-top: 5px;
   margin-left: 5px;
 }
 
