@@ -79,10 +79,10 @@ function App() {
       <h1 id="family_recipes_header">Family Recipes 🍽️</h1>
       <NavBar />
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/-">
           <Home />
         </Route>
-        <Route exact path="/categories">
+        <Route exact path="/-categories">
           <Categories />
         </Route>
         <Route path="/login" >
@@ -95,20 +95,20 @@ function App() {
           handleLogin = {handleLogin}
           />
         </Route>
-        <Route path="/categories/:id">
+        <Route path="/-categories/:id">
           <CategoryRecipes />
         </Route>
-        <Route path="/recipe_create">
+        <Route path="/-recipe_create">
           <AddRecipe
           errorRender = {errorRender()}
           setErrors = {setErrors}
           />
         </Route>
         <Route 
-        path="/recipes/:id">
+        path="/-recipes/:id">
           <RecipeCard />
         </Route>
-        <Route path="/signup">
+        <Route path="/-signup">
           <SignUp 
           username = {username}
           setUsername = {setUsername}
@@ -119,16 +119,16 @@ function App() {
           setPasswordConfirmation = {setPasswordConfirmation}
           />
         </Route>
-        <Route path="/comments/:id">
+        <Route path="/-comments/:id">
           <EditComment />
         </Route>
-        <Route path="/editrecipe/:id">
+        <Route path="/-editrecipe/:id">
           <EditRecipe
             errorRender = {errorRender()}
             setErrors = {setErrors}
            />
         </Route>
-        <Route path="/editrecipephoto/:id">
+        <Route path="/-editrecipephoto/:id">
             <EditRecipePhoto errorRender = {errorRender()} />
            </Route>
       </Switch>
