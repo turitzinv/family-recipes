@@ -26,6 +26,13 @@ function App() {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
+  const [allCategories, setAllCategories] = useState([])
+
+  useEffect(() => {
+    fetch("/categories")
+    .then((resp) => resp.json())
+    .then((categories) => setAllCategories(categories))
+  }, [])
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -83,7 +90,7 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/-categories">
-          <Categories />
+          <Categories allCategories={allCategories} />
         </Route>
         <Route path="/-login" >
           <Login 
@@ -96,7 +103,7 @@ function App() {
           />
         </Route>
         <Route path="/-categories/:id">
-          <CategoryRecipes />
+          <CategoryRecipes  />
         </Route>
         <Route path="/-recipe_create">
           <AddRecipe

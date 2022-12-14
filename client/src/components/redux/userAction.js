@@ -52,7 +52,7 @@ export const signup = (details, history) => {
     } else {
       dispatch({ type: "CLEAR_ERRORS" });
       dispatch({ type: "SIGNUP", payload });
-      history.push("/");
+      history.push("/-");
     }
     dispatch({ type: "DONE_REQUESTING" });
   };

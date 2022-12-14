@@ -33,7 +33,7 @@ const Login = ({ username, setUsername, password, setPassword, handleLogin }) =>
         />
         <button id="login-button" type="submit" className="btn btn-primary">Log in</button>
         {errorRender()}
-        <a href="/signup">Create an Account</a>
+        <a href="/-signup">Create an Account</a>
       </form>
     </div>
   )

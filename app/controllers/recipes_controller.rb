@@ -15,7 +15,8 @@ skip_before_action :authorize, only: [:index]
   end
 
   def create
-    recipe = Recipe.create!(recipe_params)
+    byebug
+    recipe = Recipe.create(recipe_params)
     render json: recipe, status: :created
   end
 
