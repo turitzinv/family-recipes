@@ -14,7 +14,7 @@ const CommentCard = ({ description, comment, currentUserId, handleDeleteComment,
     })
 
   const displayUsers = userCommented.map((user) => {
-    return <td key={user.indexOf()}>{user}</td>
+    return <td width="200px" key={user.indexOf()}>{user}</td>
   })
 
   function handleDeleteClick() {
@@ -34,7 +34,7 @@ const CommentCard = ({ description, comment, currentUserId, handleDeleteComment,
 
   return (
     <tr className="table-info">
-      <td>{description}</td>
+      <td width="800px">{description}</td>
       {displayUsers}
       { comment.user_id === currentUserId ? (
         <>

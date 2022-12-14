@@ -175,6 +175,16 @@ margin-left: 10px;
   margin-right: 5px;
 }
 
+#confirm-edit-comment {
+  margin-right: 5px;
+  width: 130px;
+}
+
+#cancel-edit-comment {
+  margin-left: 5px;
+  width: 130px;
+}
+
 #cancel-edit-button {
   margin-top: 5px;
   margin-left: 5px;
@@ -226,11 +236,13 @@ margin-left: 10px;
   position: relative;
   width: 100px;
   left: 80px;
+  margin-right: 80px;
 }
 
 #delete-comment-button {
   position: static;
   width: 100px;
+  margin-left: 10px;
 }
 
 #all_categories {
