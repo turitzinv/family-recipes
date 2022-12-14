@@ -37,7 +37,7 @@ const EditComment = () => {
       }),
     })
     .then((resp) => resp.json())
-    history.push(`/recipes/${comment.recipe_id}`)
+    history.push(`/-recipes/${comment.recipe_id}`)
   }
 
   function cancelEditClick(){

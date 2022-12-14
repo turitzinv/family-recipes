@@ -15,7 +15,7 @@ const EditRecipePhoto = ({ errorRender }) => {
   }
 
   function cancelEditClick() {
-    history.push(`/recipes/${id}`);
+    history.push(`/-recipes/${id}`);
   }
 
   function handlePhotoUpdateSubmit(e) {
@@ -29,7 +29,7 @@ const EditRecipePhoto = ({ errorRender }) => {
       body: sendFormData,
     }).then((resp => {
       if (resp.ok) {
-        history.push(`/recipes/${id}`);
+        history.push(`/-recipes/${id}`);
       } else {
         resp.json().then((err) => alert(err.errors));
       }

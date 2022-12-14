@@ -29,7 +29,7 @@ const CommentCard = ({ description, comment, currentUserId, handleDeleteComment,
   }
 
   function handleEditClick() {
-    history.push(`/comments/${comment.id}`)
+    history.push(`/-comments/${comment.id}`)
   }
 
   return (

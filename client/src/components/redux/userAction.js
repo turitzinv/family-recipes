@@ -22,7 +22,7 @@ export const login = (details, history) => {
     } else {
       dispatch({ type: "CLEAR_ERRORS" });
       dispatch({ type: "LOGIN", payload });
-      history.push("/");
+      history.push("/-");
     }
     dispatch({ type: "DONE_REQUESTING" });
   };

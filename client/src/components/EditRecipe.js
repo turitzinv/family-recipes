@@ -8,7 +8,7 @@ const EditRecipe = ({ errorRender, setErrors }) => {
   let history = useHistory();
 
   function cancelEditClick() {
-    history.push(`/recipes/${id}`);
+    history.push(`/-recipes/${id}`);
   }
 
   function handleInputChange(event) {

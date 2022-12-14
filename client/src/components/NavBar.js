@@ -38,27 +38,27 @@ const NavBar = () => {
 
   function handleSignoutClick() {
     dispatch(logout())
-    history.push("/login")
+    history.push("/-login")
   }
 
   return (
     <div>
-      <NavLink style={linkStyles} to="/">
+      <NavLink style={linkStyles} to="/-">
         Home
       </NavLink>
-      <NavLink style={linkStyles} to="/categories">
+      <NavLink style={linkStyles} to="/-categories">
         Categories
       </NavLink>
       { user ? (
         <>
-        <NavLink style={linkStyles} to="/recipe_create">
+        <NavLink style={linkStyles} to="/-recipe_create">
         Add Recipe
         </NavLink>
           <button style={linkStyles} onClick = {handleSignoutClick} >Sign out</button>
           <p style={helloUserStyle}>Hello {user}</p>
         </>
       ) : (
-        <NavLink style={linkStyles} to="/login">
+        <NavLink style={linkStyles} to="/-login">
         Login
       </NavLink>
       )

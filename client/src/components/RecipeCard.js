@@ -61,11 +61,11 @@ const RecipeCard = () => {
   }
 
   function handleEditRecipeClick() {
-    history.push(`/editrecipe/${recipe.id}`);
+    history.push(`/-editrecipe/${recipe.id}`);
   }
 
   function handleEditRecipePhotoClick() {
-    history.push(`/editrecipephoto/${recipe.id}`);
+    history.push(`/-editrecipephoto/${recipe.id}`);
   }
 
   function addCommentClick() {
@@ -84,14 +84,14 @@ const RecipeCard = () => {
       method: "DELETE",
     }).then((resp) => {
       if (resp.ok) {
-        history.push("/categories");
+        history.push("/-categories");
         window.location.reload()
       }
     });
   }
 
   function backRecipeClick() {
-    history.push(`/categories/${recipe.category_id}`);
+    history.push(`/-categories/${recipe.category_id}`);
   }
 
   return (

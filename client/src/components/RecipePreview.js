@@ -7,7 +7,7 @@ const RecipePreview = ({ title, image, id }) => {
   const user = useSelector(state => state.users)
 
   function onClick() {
-    history.push(`/recipes/${id}`);
+    history.push(`/-recipes/${id}`);
   }
 
   return (

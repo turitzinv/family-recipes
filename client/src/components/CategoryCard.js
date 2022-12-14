@@ -6,7 +6,7 @@ const CategoryCard = ({ title, category }) => {
   const history = useHistory()
 
   function onClick() {
-    history.push(`/categories/${category.id}`)
+    history.push(`/-categories/${category.id}`)
   }
 
   return (

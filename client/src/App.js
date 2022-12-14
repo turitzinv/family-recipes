@@ -85,7 +85,7 @@ function App() {
         <Route exact path="/-categories">
           <Categories />
         </Route>
-        <Route path="/login" >
+        <Route path="/-login" >
           <Login 
           username = {username}
           setUsername = {setUsername}
