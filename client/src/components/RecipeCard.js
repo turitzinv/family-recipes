@@ -5,11 +5,10 @@ import AddComment from "./AddComment";
 import { useSelector } from "react-redux";
 import DeleteConfirmation from "./DeleteConfirmation";
 
-const RecipeCard = () => {
+const RecipeCard = ({ users }) => {
   const [recipe, setRecipe] = useState({});
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState([]);
-  const [users, setUsers] = useState([]);
   const { id } = useParams();
 
   let history = useHistory();
@@ -18,19 +17,22 @@ const RecipeCard = () => {
   const currentUserId = currentUser.user.id
 
   useEffect(() => {
-    fetch(`/recipes/${id}`)
+    const abortController = new AbortController()
+    fetch(`/recipes/${id}`, { signal: abortController.signal })
       .then((resp) => resp.json())
       .then((recipe) => {
         setRecipe(recipe);
         setComments(recipe.comments);
-      });
-  }, [id]);
+      })
+      .catch(error => {
+        if (error.name === 'AbortError') return
+        throw error
+      })
 
-  useEffect(() => {
-    fetch("/users")
-      .then((resp) => resp.json())
-      .then((pulledUsers) => setUsers(pulledUsers));
-  }, []);
+      return () => {
+        abortController.abort()
+      }
+  }, [id]);
 
   function handleDeleteComment(deletedComment) {
     const updatedComments = comments.filter(

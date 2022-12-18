@@ -6,11 +6,14 @@ const AddRecipe = ({ errorRender }) => {
     title: "",
     ingredients: "",
     instructions: "",
-    image_url: null,
+    image_url: "",
     category_id: "default"
   })
+  
   const currentUser = useSelector(state => state.users.user)
   const currentUserId = currentUser.id
+
+  console.log(formData.image_url)
 
   function handleInputChange(event) {
     setFormData({
@@ -53,7 +56,7 @@ const AddRecipe = ({ errorRender }) => {
         alert("Recipe Added!")
         window.location.reload()
       } else {
-        resp.json().then((err) => alert(err.errors))
+        resp.json().then((err) => console.log(err.error))
       }
     }))
   }

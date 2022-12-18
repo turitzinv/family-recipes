@@ -27,12 +27,19 @@ function App() {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
   const [allCategories, setAllCategories] = useState([])
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     fetch("/categories")
     .then((resp) => resp.json())
     .then((categories) => setAllCategories(categories))
   }, [])
+
+  useEffect(() => {
+    fetch("/users")
+      .then((resp) => resp.json())
+      .then((pulledUsers) => setUsers(pulledUsers));
+  }, []);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -62,11 +69,11 @@ function App() {
 
   useEffect(() => {
     dispatch(currentUser())
-  }, []);
+  }, [dispatch]); //added dispatch within dependency array
 
   useEffect(() => {
     dispatch(allRecipes())
-  }, [])
+  }, [dispatch]) //added dispatch within dependency array
 
   if(requesting) {
     return <h1>Loading...</h1>
@@ -86,7 +93,7 @@ function App() {
       <h1 id="family_recipes_header">Family Recipes 🍽️</h1>
       <NavBar />
       <Switch>
-        <Route exact path="/-">
+        <Route exact path="/">
           <Home />
         </Route>
         <Route exact path="/-categories">
@@ -111,9 +118,8 @@ function App() {
           setErrors = {setErrors}
           />
         </Route>
-        <Route 
-        path="/-recipes/:id">
-          <RecipeCard />
+        <Route path="/-recipes/:id">
+          <RecipeCard users = {users} />
         </Route>
         <Route path="/-signup">
           <SignUp 
@@ -137,7 +143,7 @@ function App() {
         </Route>
         <Route path="/-editrecipephoto/:id">
             <EditRecipePhoto errorRender = {errorRender()} />
-           </Route>
+        </Route>
       </Switch>
     </div>
   );

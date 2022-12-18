@@ -22,7 +22,7 @@ export const login = (details, history) => {
     } else {
       dispatch({ type: "CLEAR_ERRORS" });
       dispatch({ type: "LOGIN", payload });
-      history.push("/-");
+      history.push("/");
     }
     dispatch({ type: "DONE_REQUESTING" });
   };
@@ -52,7 +52,7 @@ export const signup = (details, history) => {
     } else {
       dispatch({ type: "CLEAR_ERRORS" });
       dispatch({ type: "SIGNUP", payload });
-      history.push("/-");
+      history.push("/");
     }
     dispatch({ type: "DONE_REQUESTING" });
   };

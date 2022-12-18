@@ -31,7 +31,7 @@ const NavBar = () => {
     position: "absolute",
     top: "35px",
     right: "30px",
-    width: "200px"
+    width: "300px"
   }
 
   let history = useHistory()
@@ -43,7 +43,7 @@ const NavBar = () => {
 
   return (
     <div>
-      <NavLink style={linkStyles} to="/-">
+      <NavLink style={linkStyles} to="/">
         Home
       </NavLink>
       <NavLink style={linkStyles} to="/-categories">
