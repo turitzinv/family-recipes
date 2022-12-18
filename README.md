@@ -53,7 +53,7 @@ Sign out
 
 # Recipe Details
 
-If the recipe belongs to the logged in user, "Edit Recipe" and "Delete" buttons will be visible. The author of the recipe can choose to revise their recipe or cancel changes if they change their mind.
+If the recipe belongs to the logged in user, "Edit Details", "Edit Photo" and "Delete" buttons will be visible. The author of the recipe can choose to revise their recipe or cancel changes if they change their mind. The author also has the choice to delete their recipe from the site, and will be prompted witha confirmation before doing so.
 
 ## Comments
 
