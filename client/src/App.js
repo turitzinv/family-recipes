@@ -113,10 +113,7 @@ function App() {
           <CategoryRecipes  />
         </Route>
         <Route path="/-recipe_create">
-          <AddRecipe
-          errorRender = {errorRender()}
-          setErrors = {setErrors}
-          />
+          <AddRecipe />
         </Route>
         <Route path="/-recipes/:id">
           <RecipeCard users = {users} />
@@ -142,7 +139,10 @@ function App() {
            />
         </Route>
         <Route path="/-editrecipephoto/:id">
-            <EditRecipePhoto errorRender = {errorRender()} />
+            <EditRecipePhoto 
+            errorRender = {errorRender()} 
+            setErrors = {setErrors}
+            />
         </Route>
       </Switch>
     </div>

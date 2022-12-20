@@ -42,6 +42,16 @@ skip_before_action :authorize, only: [:index]
     render json: recipe
   end
 
+  # def update
+  #   recipe = Recipe.find(params[:id])
+  #   recipe.update(recipe_params)
+  #   if recipe.valid?
+  #     render json: recipe
+  #   else
+  #     render json: { error: recipe.errors.full_messages }, status: :unprocessable_entity
+  #   end
+  # end
+
   def destroy
     recipe = Recipe.find(params[:id])
     recipe.destroy

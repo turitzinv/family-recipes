@@ -67,9 +67,9 @@ const EditRecipe = ({ errorRender, setErrors }) => {
       }),
     }).then((resp => {
       if (resp.ok) {
-        history.push(`/recipes/${id}`);
+        history.push(`/-recipes/${id}`);
       } else {
-        resp.json().then((err) => console.log(err.errors));
+        resp.json().then((err) => setErrors(err.errors));
       }
     }));
   }

@@ -1,19 +1,27 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import Error from './Error'
 
-const AddRecipe = ({ errorRender }) => {
+const AddRecipe = () => {
   const [formData, setFormData] = useState({
     title: "",
     ingredients: "",
     instructions: "",
-    image_url: "",
+    image_url: null,
     category_id: "default"
   })
+  const [errors, setErrors] = useState([]);
   
   const currentUser = useSelector(state => state.users.user)
   const currentUserId = currentUser.id
 
-  console.log(formData.image_url)
+  function errorRender() {
+    if (errors instanceof Array) {
+      return errors.map((error) => <Error key = {error} error = {error} />);
+    } else {
+      return null;
+    }
+  }
 
   function handleInputChange(event) {
     setFormData({
@@ -36,17 +44,28 @@ const AddRecipe = ({ errorRender }) => {
 
     })
   }
+  
+  const sendFormData = new FormData()
+
+  function imageCheck() {
+    if (formData.image_url === null) {
+      return null
+    } else {
+      sendFormData.append('image_url', formData.image_url)
+    }
+  }
 
   function handleRecipeSubmit(e) {
     e.preventDefault()
 
-    const sendFormData = new FormData()
+    //const sendFormData = new FormData()
     sendFormData.append('title', formData.title)
     sendFormData.append('ingredients', formData.ingredients)
     sendFormData.append('instructions', formData.instructions)
-    sendFormData.append('image_url', formData.image_url)
+    //sendFormData.append('image_url', formData.image_url)
     sendFormData.append('category_id', formData.category_id)
     sendFormData.append('author_id', currentUserId)
+    imageCheck()
 
     fetch("/recipes", {
       method: "POST",
@@ -56,7 +75,7 @@ const AddRecipe = ({ errorRender }) => {
         alert("Recipe Added!")
         window.location.reload()
       } else {
-        resp.json().then((err) => console.log(err.error))
+        resp.json().then((err) => setErrors(err.error))
       }
     }))
   }
@@ -105,7 +124,7 @@ const AddRecipe = ({ errorRender }) => {
         </select>
         <button className="btn btn-primary"> Add Recipe</button>
       </form>
-      {errorRender}
+      {errorRender()}
     </div>
   )
 }
