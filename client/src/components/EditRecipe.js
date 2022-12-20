@@ -68,6 +68,7 @@ const EditRecipe = ({ errorRender, setErrors }) => {
     }).then((resp => {
       if (resp.ok) {
         history.push(`/-recipes/${id}`);
+        window.location.reload()
       } else {
         resp.json().then((err) => setErrors(err.errors));
       }
