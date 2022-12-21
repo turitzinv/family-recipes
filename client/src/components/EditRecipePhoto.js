@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 
-const EditRecipePhoto = ({ errorRender, setErrors }) => {
+const EditRecipePhoto = () => {
   const [photo, setPhoto] = useState(null);
   const { id } = useParams();
 
@@ -31,8 +31,6 @@ const EditRecipePhoto = ({ errorRender, setErrors }) => {
   function handlePhotoUpdateSubmit(e) {
     e.preventDefault();
 
-    // const sendFormData = new FormData();
-    //sendFormData.append("image_url", photo.image_url);
     imageCheck()
 
     fetch(`/recipes/${id}`, {
@@ -42,8 +40,6 @@ const EditRecipePhoto = ({ errorRender, setErrors }) => {
       if (resp.ok) {
         history.push(`/-recipes/${id}`);
         window.location.reload()
-      } else {
-        resp.json().then((err) => console.log(err.errors));
       }
     }));
   }
@@ -65,7 +61,6 @@ const EditRecipePhoto = ({ errorRender, setErrors }) => {
           Cancel Edit
         </button>
       </form>
-      {errorRender}
     </div>
   )
 }

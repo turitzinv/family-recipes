@@ -69,11 +69,11 @@ function App() {
 
   useEffect(() => {
     dispatch(currentUser())
-  }, [dispatch]); //added dispatch within dependency array
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(allRecipes())
-  }, [dispatch]) //added dispatch within dependency array
+  }, [dispatch]);
 
   if(requesting) {
     return <h1>Loading...</h1>
@@ -133,16 +133,10 @@ function App() {
           <EditComment />
         </Route>
         <Route path="/-editrecipe/:id">
-          <EditRecipe
-            errorRender = {errorRender()}
-            setErrors = {setErrors}
-           />
+          <EditRecipe />
         </Route>
         <Route path="/-editrecipephoto/:id">
-            <EditRecipePhoto 
-            errorRender = {errorRender()} 
-            setErrors = {setErrors}
-            />
+            <EditRecipePhoto />
         </Route>
       </Switch>
     </div>

@@ -58,11 +58,9 @@ const AddRecipe = () => {
   function handleRecipeSubmit(e) {
     e.preventDefault()
 
-    //const sendFormData = new FormData()
     sendFormData.append('title', formData.title)
     sendFormData.append('ingredients', formData.ingredients)
     sendFormData.append('instructions', formData.instructions)
-    //sendFormData.append('image_url', formData.image_url)
     sendFormData.append('category_id', formData.category_id)
     sendFormData.append('author_id', currentUserId)
     imageCheck()

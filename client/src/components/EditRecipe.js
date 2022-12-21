@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from 'react-router-dom';
 
-const EditRecipe = ({ errorRender, setErrors }) => {
+const EditRecipe = () => {
   const [recipe, setRecipe] = useState({});
   const { id } = useParams();
 
@@ -31,27 +31,6 @@ const EditRecipe = ({ errorRender, setErrors }) => {
       .then((recipe) => setRecipe(recipe));
   }, [id]);
 
-  // function handleRecipeUpdateSubmit(e) {
-  //   e.preventDefault();
-
-  //   const sendFormData = new FormData();
-  //   sendFormData.append("title", recipe.title);
-  //   sendFormData.append("ingredients", recipe.ingredients);
-  //   sendFormData.append("instructions", recipe.instructions);
-  //   sendFormData.append("category_id", recipe.category_id);
-
-  //   fetch(`/recipes/${id}`, {
-  //     method: "PATCH",
-  //     body: sendFormData,
-  //   }).then((resp => {
-  //     if (resp.ok) {
-  //       history.push(`/recipes/${id}`);
-  //     } else {
-  //       resp.json().then((err) => setErrors(err.errors));
-  //     }
-  //   }));
-  // }
-
   function handleRecipeUpdateSubmit(e) {
     e.preventDefault();
     fetch(`/recipes/${id}`, {
@@ -69,8 +48,6 @@ const EditRecipe = ({ errorRender, setErrors }) => {
       if (resp.ok) {
         history.push(`/-recipes/${id}`);
         window.location.reload()
-      } else {
-        resp.json().then((err) => setErrors(err.errors));
       }
     }));
   }
@@ -124,7 +101,6 @@ const EditRecipe = ({ errorRender, setErrors }) => {
           Cancel Edit
         </button>
       </form>
-      {errorRender}
     </div>
   );
 };
