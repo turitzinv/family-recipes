@@ -24,6 +24,7 @@ git clone git@github.com:turitzinv/family-recipes.git
 cd family-recipes
 bundle install
 npm install --prefix client
+rails db:seed
 ```
 
 Running the backend (http://localhost:3000):
