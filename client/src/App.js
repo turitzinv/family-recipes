@@ -8,7 +8,6 @@ import CategoryRecipes from './components/CategoryRecipes';
 import RecipeCard from './components/RecipeCard';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-import Error from './components/Error';
 import EditComment from './components/EditComment';
 import AddRecipe from './components/AddRecipe';
 import EditRecipe from './components/EditRecipe';
@@ -25,7 +24,6 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [errors, setErrors] = useState([]);
   const [allCategories, setAllCategories] = useState([])
   const [users, setUsers] = useState([]);
 
@@ -79,15 +77,6 @@ function App() {
     return <h1>Loading...</h1>
   }
 
-  function errorRender() {
-    if (errors instanceof Array) {
-      return errors.map((error) => 
-      <Error key = {error} error = {error} />);
-    } else {
-      return null;
-    }
-  }
-
   return (
     <div className="App">
       <h1 id="family_recipes_header">Family Recipes 🍽️</h1>
@@ -105,7 +94,6 @@ function App() {
           setUsername = {setUsername}
           password = {password}
           setPassword = {setPassword}
-          setErrors = {setErrors}
           handleLogin = {handleLogin}
           />
         </Route>
