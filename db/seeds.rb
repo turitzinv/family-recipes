@@ -19,7 +19,7 @@ lemonCake = Recipe.new(
 )
 
 lemonCake.image_url.attach(
-  io: File.open('client/src/Images/lemon_cake.jpeg'),
+  io: File.open('db/Images/lemon_cake.jpeg'),
   filename: 'lemon_cake.jpeg',
   content_type: 'application/jpeg'
 )
@@ -35,7 +35,7 @@ thinPancakes = Recipe.new(
 )
 
 thinPancakes.image_url.attach(
-  io: File.open('client/src/Images/thin_pancakes.jpg'),
+  io: File.open('db/Images/thin_pancakes.jpg'),
   filename: 'thin_pancakes.jpg',
   content_type: 'application/jpg'
 )
@@ -51,7 +51,7 @@ oreoTruffles = Recipe.new(
 )
 
 oreoTruffles.image_url.attach(
-  io: File.open('client/src/Images/oreo_truffles.jpg'),
+  io: File.open('db/Images/oreo_truffles.jpg'),
   filename: 'oreo_truffles.jpg',
   content_type: 'application/jpg'
 )
@@ -67,7 +67,7 @@ cherryBombs = Recipe.new(
 )
 
 cherryBombs.image_url.attach(
-  io: File.open('client/src/Images/IMG-5839.jpg'),
+  io: File.open('db/Images/IMG-5839.jpg'),
   filename: 'IMG-5839.jpg',
   content_type: 'application/jpg'
 )
@@ -83,7 +83,7 @@ piroshki = Recipe.new(
 )
 
 piroshki.image_url.attach(
-  io: File.open('client/src/Images/IMG-5266.jpg'),
+  io: File.open('db/Images/IMG-5266.jpg'),
   filename: 'IMG-5266.jpg',
   content_type: 'application/jpg'
 )
