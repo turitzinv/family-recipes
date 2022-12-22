@@ -1,6 +1,6 @@
 # Family Recipes
 
-Recipes are meant to be passed down and shared, this application allows you to do just that! A user must be log in or create an account in order to view recipe details. Once logged in, users can add recipes and comment on other recipes.
+Recipes are meant to be passed down and shared, this application allows you to do just that! A user must log in or create an account in order to view recipe details. Once logged in, users can add recipes and comment on other recipes. A user can edit their own recipes or comments.
 
 # Tech
 
@@ -53,9 +53,9 @@ Sign out
 
 # Recipe Details
 
-If the recipe belongs to the logged in user, "Edit Details", "Edit Photo" and "Delete" buttons will be visible. The author of the recipe can choose to revise their recipe or cancel changes if they change their mind. The author also has the choice to delete their recipe from the site, and will be prompted witha confirmation before doing so.
+If the recipe belongs to the logged in user, "Edit Details", "Edit Photo" and "Delete" buttons will be visible. The author of the recipe can choose to revise their recipe or cancel changes if they change their mind. The author also has the choice to delete their recipe from the site, and will be prompted with a confirmation message before doing so.
 
 ## Comments
 
-Comments appear at the bottom of the recipe, if a comment belongs to the logged in user then buttons to edit or delete their comment will be visible.
+Comments appear at the bottom of the recipe. If a comment belongs to the logged in user, buttons to edit or delete their comment will be visible.
 
