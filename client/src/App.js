@@ -1,7 +1,7 @@
 import './App.css';
 import NavBar from './components/NavBar';
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, HashRouter } from 'react-router-dom';
 import Home from './components/Home';
 import Categories from './components/Categories';
 import CategoryRecipes from './components/CategoryRecipes';
@@ -80,6 +80,7 @@ function App() {
   return (
     <div className="App">
       <h1 id="family_recipes_header">Family Recipes 🍽️</h1>
+      <HashRouter >
       <NavBar />
       <Switch>
         <Route exact path="/">
@@ -127,6 +128,7 @@ function App() {
             <EditRecipePhoto />
         </Route>
       </Switch>
+      </HashRouter>
     </div>
   );
 }
