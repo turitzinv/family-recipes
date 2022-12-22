@@ -1,6 +1,6 @@
 # Family Recipes
 
-Recipes are meant to be passed down and shared, this application allows you to do just that! A user must log in or create an account in order to view recipe details. Once logged in, users can add recipes and comment on other recipes. A user can edit their own recipes or comments.
+Recipes are meant to be passed down and shared, this application allows you to do just that! Create your recipes for others to view and comment on. A user must log in or create an account in order to view recipe details. Once logged in, users can add recipes and comment on other recipes. A user can edit their own recipes or comments.
 
 # Tech
 
