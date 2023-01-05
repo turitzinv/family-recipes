@@ -33,7 +33,7 @@ const CategoryRecipes = () => {
       {user.isLoggedIn ? null : (
         <h3 id="login-to-view-recipe-h3">Log in or Create an account to view Recipe details</h3>
       )}
-      <div className="row row-cols-1 row-cols-md-3 g-4">{recipeRender()}</div>
+      <div id="recipe-previews" className="row row-cols-1 row-cols-md-3 g-4">{recipeRender()}</div>
     </div>
   );
 };
